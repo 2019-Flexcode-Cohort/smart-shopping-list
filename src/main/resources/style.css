@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    max-width: 750px;
+}
+
+.nav {
+    display: grid;
+    grid-template-columns: 3rem auto 3rem 3rem;
+    grid-template-rows: 1fr;
+    grid-gap: 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgb(157, 157, 157);
+}
+
+
+.mealList {
+    padding-top: 4rem;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto 3rem 6rem;
+    grid-gap: 5px;
+}
+
+button {
+    font-size: 8px;
+    width: 3rem;
+    height: 3rem;
+}
+
+.addIngredients {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto 3rem 3rem;
+}
