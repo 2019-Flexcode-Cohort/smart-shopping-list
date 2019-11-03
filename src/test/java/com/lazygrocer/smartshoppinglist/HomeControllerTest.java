@@ -1,5 +1,6 @@
 package com.lazygrocer.smartshoppinglist;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -32,9 +33,13 @@ public class HomeControllerTest {
 	public void shouldAddListOfMealsToModel() {
 		when(mealRepo.findAll()).thenReturn(Collections.singletonList(meal));
 		underTest.serveHomePage(model);
-		verify(model).addAttribute("meals",Collections.singletonList(meal));
-		
-		
+		verify(model).addAttribute("meals", Collections.singletonList(meal));
+
+	}
+
+	@Test
+	public void serveHomePageShouldReturnViewName() throws Exception {
+		assertEquals("home", underTest.serveHomePage(model));
 
 	}
 

@@ -11,8 +11,10 @@ public class HomeController {
 	@Resource
 	private MealRepository mealRepo;
 
-	public void serveHomePage(Model model) {
+	
+	public String serveHomePage(Model model) {
 		model.addAttribute("meals", mealRepo.findAll());
+		return "home";
 	}
 
 }
