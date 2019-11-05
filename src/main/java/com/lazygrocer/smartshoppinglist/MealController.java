@@ -34,40 +34,50 @@ public class MealController {
 
 	}
 
-	@RequestMapping("/del-meal")
-	public String deleteMealByName(String mealName) {
-		if(mealRepo.findByName(mealName) != null) {
-			Meal deleteMeal = mealRepo.findByName(mealName);
-			mealRepo.delete(deleteMeal);
-		}
-		return "redirect:/meals";
-	}
-
-	@RequestMapping("/delete-meal")
-	public String deleteMealById(Long mealId) {
-		mealRepo.deleteById(mealId);
-		return "redirect:/meals";
-	}
-	
 	@RequestMapping("/add-meal")
-	public String addMeal(String mealName, int servings, Ingredient...ingredients) {
+	public String addMeal(String mealName, int servings, Ingredient... ingredients) {
 		Ingredient ingredient = ingredientRepo.findByName(ingredients);
-		
-		if(ingredient == null) {
+
+		if (ingredient == null) {
 			ingredient = new Ingredient("ingredient name", 12);
 			ingredientRepo.save(ingredient);
 		}
-		
+
 		Meal newMeal = mealRepo.findByName(mealName);
-		
-		if(newMeal == null) {
+
+		if (newMeal == null) {
 			newMeal = new Meal(mealName, servings, ingredients);
 			mealRepo.save(newMeal);
 		}
 		return "redirect:/meals";
 	}
 
+	@RequestMapping("/delete-meal")
+	public String deleteMealByName(String mealName) {
+		if (mealRepo.findByName(mealName) != null) {
+			Meal deleteMeal = mealRepo.findByName(mealName);
+			mealRepo.delete(deleteMeal);
+		}
+		return "redirect:/meals";
+	}
+
+	@RequestMapping("/del-meal")
+	public String deleteMealById(Long mealId) {
+		mealRepo.deleteById(mealId);
+		return "redirect:/meals";
+	}
 	
+	@RequestMapping("/find-meal")
+	public String findMeal(String mealName, Model model) {
+		Meal meal = mealRepo.findByName(mealName);
+		model.addAttribute("meals", mealRepo.findMeal(meal));
+		return "/meal";
+	}
 	
+	@RequestMapping("/sort-meals")
+	public String sortMeals(Model model) {
+		model.addAttribute("meals", mealRepo.findAllByOrderByNameAsc());
+		return "redirect:/meals";
+	}
 
 }
