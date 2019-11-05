@@ -74,6 +74,7 @@ public class MealController {
 		return "/meal";
 	}
 	
+	@RequestMapping("/sort-meals")
 	public String sortMeals(Model model) {
 		model.addAttribute("meals", mealRepo.findAllByOrderByNameAsc());
 		return "redirect:/meals";
