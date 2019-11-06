@@ -70,7 +70,7 @@ public class MealController {
 	@RequestMapping("/find-meal")
 	public String findMeal(String mealName, Model model) {
 		Meal meal = mealRepo.findByName(mealName);
-		model.addAttribute("meals", mealRepo.findMeal(meal));
+		model.addAttribute("meals", mealRepo.findByName(mealName));
 		return "/meal";
 	}
 	
