@@ -80,4 +80,17 @@ public class MealController {
 		return "redirect:/meals";
 	}
 
+	@RequestMapping("/change-meal-name")
+	public String changeMealName(String oldMealName, String newMealName) {
+		
+		Meal meal = mealRepo.findByName(oldMealName);
+
+		if (newMealName == null) {
+			oldMealName = newMealName;
+			mealRepo.save(meal);
+		}
+		return "redirect:/meal";
+		
+	}
+
 }
