@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -80,17 +81,16 @@ public class MealController {
 		return "redirect:/meals";
 	}
 
-	@RequestMapping("/change-meal-name")
-	public String changeMealName(String oldMealName, String newMealName) {
+	@RequestMapping("/change-meal-name/{newMealName}")
+	public String changeMealName(Long id, @PathVariable String newMealName) {
 		
-		Meal meal = mealRepo.findByName(oldMealName);
+		Meal meal = mealRepo.findById(id).get();
 
-		if (newMealName == null) {
-			oldMealName = newMealName;
+			meal.changeName(newMealName);
 			mealRepo.save(meal);
-		}
+
 		return "redirect:/meal";
-		
+	
 	}
 
 }

@@ -2,6 +2,7 @@ package com.lazygrocer.smartshoppinglist;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -89,14 +90,11 @@ public class MealControllerTest {
 	
 	@Test
 	public void shouldChangeMealName() {
-		Meal testMeal = new Meal("meal", 1);
-		String oldMealName = meal.getName();
+		Meal testMeal = mock(Meal.class);
 		
-		when(mealRepo.findByName(oldMealName)).thenReturn(meal);
-		underTest.changeMealName("meal","anotherMeal");
+		when(mealRepo.findById(1L)).thenReturn(Optional.of(testMeal));
 		
-		Meal updatedMeal =mealRepo.findByName(testMeal.getName());
-		assertThat(updatedMeal.getName(), is("anotherMeal"));
-
+		underTest.changeMealName(1L,"newName");
+		verify(testMeal).changeName("newName");
 	}
 }
