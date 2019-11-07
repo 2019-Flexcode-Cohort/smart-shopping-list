@@ -91,9 +91,7 @@ public class MealControllerTest {
 	@Test
 	public void shouldChangeMealName() {
 		Meal testMeal = mock(Meal.class);
-		
 		when(mealRepo.findById(1L)).thenReturn(Optional.of(testMeal));
-		
 		underTest.changeMealName(1L,"newName");
 		verify(testMeal).changeName("newName");
 	}

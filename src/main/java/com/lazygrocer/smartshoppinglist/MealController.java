@@ -70,8 +70,7 @@ public class MealController {
 	
 	@RequestMapping("/find-meal")
 	public String findMeal(String mealName, Model model) {
-		Meal meal = mealRepo.findByName(mealName);
-		model.addAttribute("meals", mealRepo.findMeal(meal));
+		model.addAttribute("meals", mealRepo.findByName(mealName));
 		return "/meal";
 	}
 	
@@ -81,8 +80,8 @@ public class MealController {
 		return "redirect:/meals";
 	}
 
-	@RequestMapping("/change-meal-name/{newMealName}")
-	public String changeMealName(Long id, @PathVariable String newMealName) {
+	@RequestMapping("/change-meal-name/{id}/{newMealName}")
+	public String changeMealName(@PathVariable Long id, @PathVariable String newMealName) {
 		
 		Meal meal = mealRepo.findById(id).get();
 
