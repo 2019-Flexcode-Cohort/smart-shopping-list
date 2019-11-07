@@ -83,5 +83,7 @@ public class Meal {
 			return false;
 		return true;
 	}
-
+	public void changeName(String newName) {
+		this.name = newName;
+	}
 }
