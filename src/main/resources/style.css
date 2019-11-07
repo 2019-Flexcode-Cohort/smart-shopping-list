@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    max-width: 750px;
+    font-family: sans-serif
+}
+
+.nav {
+    display: grid;
+    grid-template-columns: 4rem auto 4rem 4rem;
+    grid-template-rows: 4rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid black;
+    position: sticky;
+    
+}
+
+.mealList { 
+    display: grid;
+    grid-template-rows: 3rem;
+    grid-template-columns: auto 3rem 3rem 3rem;
+    line-height: 2.3rem;
+}
+
+.mealList > div {
+    border-bottom: 1px solid black;
+    border-
+}
+
+#mealCount, .mealButton {
+    text-align: center;
+    font-size: 25px;
+}
+
+.mealName {
+    padding: 5px;
+
+}
+
+.addIngredients {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto 3rem 3rem;
+}
+
