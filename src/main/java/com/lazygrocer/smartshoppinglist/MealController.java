@@ -89,7 +89,20 @@ public class MealController {
 			mealRepo.save(meal);
 
 		return "redirect:/meal";
+	}
 	
+	@RequestMapping("/meal/{mealId}/remove-ingredient/{ingredientId}")
+	public String deleteIngredientFromMeal(@PathVariable Long mealId, @PathVariable Long ingredientId) {
+		
+		Meal meal = mealRepo.findById(mealId).get();
+		Ingredient ingredient = ingredientRepo.findById(ingredientId).get();	
+		meal.remove (ingredient);
+		
+//		get meal
+//		get ingredient
+//		remove ingreditent
+		
+		return "/meal";
 	}
 
 }

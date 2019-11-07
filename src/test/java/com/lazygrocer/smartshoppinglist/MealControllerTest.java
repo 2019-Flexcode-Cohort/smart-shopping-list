@@ -95,4 +95,19 @@ public class MealControllerTest {
 		underTest.changeMealName(1L,"newName");
 		verify(testMeal).changeName("newName");
 	}
+	public void shouldDeleteIngredientFromMeal() {
+		Ingredient ingredientOne = mock(Ingredient.class);
+		when(ingredientRepo.findById(1L)).thenReturn(Optional.of(ingredientOne));
+		when(mealRepo.findById(2L)).thenReturn(Optional.of(meal));
+		
+		
+		underTest.deleteIngredientFromMeal(2L, 1L);
+		
+		verify(meal).remove(ingredientOne);
+		
+		
+		
+	}
+	
+	
 }
