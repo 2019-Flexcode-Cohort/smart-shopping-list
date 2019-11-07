@@ -1,5 +1,6 @@
 package com.lazygrocer.smartshoppinglist;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,10 +23,12 @@ public class Meal {
 	public Meal(String name, int servingCount, Ingredient... ingredients) {
 		this.name = name;
 		this.servingCount = servingCount;
-		this.ingredients = Arrays.asList(ingredients);
+		this.ingredients = new ArrayList<>( Arrays.asList(ingredients));
 
 	}
-	protected Meal() {}
+
+	protected Meal() {
+	}
 
 	public String getName() {
 		return name;
@@ -42,6 +45,11 @@ public class Meal {
 	public Long getId() {
 		return id;
 	}
+
+	public void remove(Ingredient ingredient) {
+		ingredients.remove(ingredient);
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -51,6 +59,7 @@ public class Meal {
 		result = prime * result + servingCount;
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

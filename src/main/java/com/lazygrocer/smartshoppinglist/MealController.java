@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -78,6 +79,20 @@ public class MealController {
 	public String sortMeals(Model model) {
 		model.addAttribute("meals", mealRepo.findAllByOrderByNameAsc());
 		return "redirect:/meals";
+	}
+
+	@RequestMapping("/meal/{mealId}/remove-ingredient/{ingredientId}")
+	public String deleteIngredientFromMeal(@PathVariable Long mealId, @PathVariable Long ingredientId) {
+		
+		Meal meal = mealRepo.findById(mealId).get();
+		Ingredient ingredient = ingredientRepo.findById(ingredientId).get();	
+		meal.remove (ingredient);
+		
+//		get meal
+//		get ingredient
+//		remove ingreditent
+		
+		return "/meal";
 	}
 
 }

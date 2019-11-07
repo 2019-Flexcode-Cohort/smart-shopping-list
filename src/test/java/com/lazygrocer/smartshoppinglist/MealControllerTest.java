@@ -1,5 +1,6 @@
 package com.lazygrocer.smartshoppinglist;
 
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -84,4 +85,21 @@ public class MealControllerTest {
 		underTest.deleteMealById(mealId);
 		verify(mealRepo).deleteById(mealId);
 	}
+	
+	@Test
+	public void shouldDeleteIngredientFromMeal() {
+		Ingredient ingredientOne = mock(Ingredient.class);
+		when(ingredientRepo.findById(1L)).thenReturn(Optional.of(ingredientOne));
+		when(mealRepo.findById(2L)).thenReturn(Optional.of(meal));
+		
+		
+		underTest.deleteIngredientFromMeal(2L, 1L);
+		
+		verify(meal).remove(ingredientOne);
+		
+		
+		
+	}
+	
+	
 }
