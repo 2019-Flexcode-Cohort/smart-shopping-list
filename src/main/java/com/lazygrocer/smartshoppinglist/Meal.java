@@ -12,21 +12,21 @@ import javax.persistence.ManyToMany;
 @Entity
 public class Meal {
 
-	private String name;
-	private int servingCount;
 	@ManyToMany
 	private List<Ingredient> ingredients;
 	@Id
 	@GeneratedValue
 	private Long id;
-
-	public Meal(String name, int servingCount, Ingredient... ingredients) {
+	
+	private String name;
+	private int servingCount;
+	
+	public Meal(String name, Integer servingCount, Ingredient... ingredients) {
 		this.name = name;
 		this.servingCount = servingCount;
 		this.ingredients = new ArrayList<>( Arrays.asList(ingredients));
-
 	}
-
+	
 	protected Meal() {
 	}
 
@@ -49,6 +49,7 @@ public class Meal {
 	public void remove(Ingredient ingredient) {
 		ingredients.remove(ingredient);
 	}
+
 
 	@Override
 	public int hashCode() {
@@ -86,4 +87,5 @@ public class Meal {
 	public void changeName(String newName) {
 		this.name = newName;
 	}
+
 }

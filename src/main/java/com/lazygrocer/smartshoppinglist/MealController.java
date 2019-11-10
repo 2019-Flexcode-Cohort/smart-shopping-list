@@ -1,14 +1,15 @@
 package com.lazygrocer.smartshoppinglist;
 
-import java.util.Optional;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@RequestMapping("/meals")
 @Controller
 public class MealController {
 
@@ -17,18 +18,23 @@ public class MealController {
 	@Resource
 	private IngredientRepository ingredientRepo;
 
-	@RequestMapping("/meal")
-	public String findOneMeal(long id, Model model) throws MealNotFoundException {
-		Optional<Meal> meal = mealRepo.findById(id);
-
-		if (meal.isPresent()) {
-			model.addAttribute("meal", meal.get());
-			return "meal";
-		}
-		throw new MealNotFoundException();
+//	@RequestMapping("/meal")
+//	public String findOneMeal(long id, Model model) throws MealNotFoundException {
+//		Optional<Meal> meal = mealRepo.findById(id);
+//
+//		if (meal.isPresent()) {
+//			model.addAttribute("meal", meal.get());
+//			return "meal";
+//		}
+//		throw new MealNotFoundException();
+//	}
+	
+	@GetMapping("/{id}")
+	public Meal findOneMeal(@PathVariable long id) {
+		return mealRepo.findById(id).get();
 	}
 
-	@RequestMapping("/meals")
+	@RequestMapping("")
 	public String findAllMeals(Model model) {
 		model.addAttribute("meals", mealRepo.findAll());
 		return ("meals");
@@ -36,7 +42,7 @@ public class MealController {
 	}
 
 	@RequestMapping("/add-meal")
-	public String addMeal(String mealName, int servings, Ingredient... ingredients) {
+	public String addMeal(String mealName, Integer servings, Ingredient... ingredients) {
 		Ingredient ingredient = ingredientRepo.findByName(ingredients);
 
 		if (ingredient == null) {
@@ -53,6 +59,18 @@ public class MealController {
 		return "redirect:/meals";
 	}
 
+	@PostMapping("/adding-meal/{mealId}/{mealName}")
+	public Meal addMealToMeals(long mealId, String mealName) {
+		Meal addedMeal = new Meal(mealName, 1);
+		return mealRepo.save(addedMeal);
+	}
+	
+//	@GetMapping("meal-to-add/{id}")
+//	public Iterable<Meal> fetchMeals(@PathVariable long id) {
+//		Meal meal = mealRepo.findById(id).get();
+//		return meal.getMeals();
+//	}
+
 	@RequestMapping("/delete-meal")
 	public String deleteMealByName(String mealName) {
 		if (mealRepo.findByName(mealName) != null) {
@@ -67,13 +85,13 @@ public class MealController {
 		mealRepo.deleteById(mealId);
 		return "redirect:/meals";
 	}
-	
+
 	@RequestMapping("/find-meal")
 	public String findMeal(String mealName, Model model) {
 		model.addAttribute("meals", mealRepo.findByName(mealName));
 		return "/meal";
 	}
-	
+
 	@RequestMapping("/sort-meals")
 	public String sortMeals(Model model) {
 		model.addAttribute("meals", mealRepo.findAllByOrderByNameAsc());
@@ -82,26 +100,26 @@ public class MealController {
 
 	@RequestMapping("/change-meal-name/{id}/{newMealName}")
 	public String changeMealName(@PathVariable Long id, @PathVariable String newMealName) {
-		
+
 		Meal meal = mealRepo.findById(id).get();
 
-			meal.changeName(newMealName);
-			mealRepo.save(meal);
+		meal.changeName(newMealName);
+		mealRepo.save(meal);
 
 		return "redirect:/meal";
 	}
-	
+
 	@RequestMapping("/meal/{mealId}/remove-ingredient/{ingredientId}")
 	public String deleteIngredientFromMeal(@PathVariable Long mealId, @PathVariable Long ingredientId) {
-		
+
 		Meal meal = mealRepo.findById(mealId).get();
-		Ingredient ingredient = ingredientRepo.findById(ingredientId).get();	
-		meal.remove (ingredient);
-		
+		Ingredient ingredient = ingredientRepo.findById(ingredientId).get();
+		meal.remove(ingredient);
+
 //		get meal
 //		get ingredient
 //		remove ingreditent
-		
+
 		return "/meal";
 	}
 

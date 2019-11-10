@@ -1,7 +1,5 @@
 package com.lazygrocer.smartshoppinglist;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -44,13 +42,13 @@ public class MealControllerTest {
 		MockitoAnnotations.initMocks(this);
 	}
 
-	@Test
-	public void shouldAddSingleMealToModel() throws MealNotFoundException {
-		long newMealId = 1;
-		when(mealRepo.findById(newMealId)).thenReturn(Optional.of(meal));
-		underTest.findOneMeal(newMealId, model);
-		verify(model).addAttribute("meal", meal);
-	}
+//	@Test
+//	public void shouldAddSingleMealToModel() throws MealNotFoundException {
+//		long newMealId = 1;
+//		when(mealRepo.findById(newMealId)).thenReturn(Optional.of(meal));
+//		underTest.findOneMeal(newMealId, model);
+//		verify(model).addAttribute("meal", meal);
+// }
 
 	@Test
 	public void shouldAddAllMealsToModel() {
@@ -59,6 +57,14 @@ public class MealControllerTest {
 
 		underTest.findAllMeals(model);
 		verify(model).addAttribute("meals", allMeals);
+	}
+	
+	@Test
+	public void shouldAddNewMealToMeals() {
+		when(mealRepo.findById(1L)).thenReturn(Optional.of(meal));
+		Meal mealToAdd = new Meal("new meal", 1);
+		underTest.addMealToMeals(1L, "new meal");
+		verify(mealRepo).save(mealToAdd);
 	}
 	
 	@Test
