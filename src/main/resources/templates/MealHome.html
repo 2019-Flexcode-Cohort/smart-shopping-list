@@ -11,13 +11,36 @@
     <div class="container">
         <div class="nav">
             <!-- NAV BAR THING-->
-            <button>NEW MEAL BUTTON</button> <!--Modal goes here-->
+            <button href="/add-meal">NEW MEAL BUTTON</button> <!--Modal goes here-->
             <h2>COOKBOOK</h2>
-            <div># of total servings</div>
-            <div>SHOPPING <br>LIST</div>
+            
+            <div>SHOPPING LIST   # of total servings</div>
         </div>
         <div> 
             <!-- THIS IS WHERE THE MEALS WILL POPULATE -->
+            
+            <div th:each="meal: ${meals}">
+            <a th:href="@{/meal(id=${meal.id})}" th:text="${meal.name}"  ></a> 
+            <a th:href="@{/meal(id=${meal.id})}" th:text="${meal.servingCount}"  ></a> 
+            <button th:formaction="@{add-meal}"> rem</button>
+   			<input type="text" size="1" value="0">
+            <button th:formaction="@{add-meal}"> add </button>
+            </div>
+            
+            
+            
+            	
+            
+            <ul>
+            	
+           
+            </ul>
+            
+            
+            
+
+            
+            
             <div class="mealList">
                 <div class="mealName">Meal 1</div><div id="mealCount">#</div><div class="mealButton">+</div><div class="mealButton">-</div>
             </div>

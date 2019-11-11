@@ -31,7 +31,7 @@ public class MealController {
 	@RequestMapping("/meals")
 	public String findAllMeals(Model model) {
 		model.addAttribute("meals", mealRepo.findAll());
-		return ("meals");
+		return ("MealHome");
 
 	}
 
