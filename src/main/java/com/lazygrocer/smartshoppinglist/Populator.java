@@ -12,23 +12,37 @@ public class Populator implements CommandLineRunner {
 	private MealRepository mealRepo;
 
 	@Resource
-	IngredientRepository IngredientRepo;
+	MealIngredientRepository mealIngredientRepo;
+	@Resource
+	IngredientRepository ingredientRepo;
 
 	@Override
 	public void run(String... args) throws Exception {
 
-		MealIngredient butter = new MealIngredient("butter", 1);
-		butter = IngredientRepo.save(butter);
-		MealIngredient milk = new MealIngredient("milk", 1);
-		milk = IngredientRepo.save(milk);
-		MealIngredient macaroni = new MealIngredient("macaroni", 1);
-		macaroni = IngredientRepo.save(macaroni);
-		MealIngredient velveta = new MealIngredient("velveta", 1);
-		velveta = IngredientRepo.save(velveta);
-		MealIngredient bread = new MealIngredient("bread", 2);
-		bread = IngredientRepo.save(bread);
-		MealIngredient egg = new MealIngredient("egg", 1);
-		egg = IngredientRepo.save(egg);
+		Ingredient iButter = new Ingredient("butter");
+		iButter = ingredientRepo.save(iButter);
+		MealIngredient butter = new MealIngredient(iButter, 1);
+		butter = mealIngredientRepo.save(butter);
+
+		Ingredient iMilk = new Ingredient("milk");
+		MealIngredient milk = new MealIngredient(iMilk, 1);
+		milk = mealIngredientRepo.save(milk);
+
+		Ingredient iMacaroni = new Ingredient("macaroni");
+		MealIngredient macaroni = new MealIngredient(iMacaroni, 1);
+		macaroni = mealIngredientRepo.save(macaroni);
+
+		Ingredient iVelveta = new Ingredient("velveta");
+		MealIngredient velveta = new MealIngredient(iVelveta, 1);
+		velveta = mealIngredientRepo.save(velveta);
+		
+		Ingredient iBread = new Ingredient("bread");
+		MealIngredient bread = new MealIngredient(iBread, 2);
+		bread = mealIngredientRepo.save(bread);
+
+		Ingredient iEgg = new Ingredient("egg");
+		MealIngredient egg = new MealIngredient(iEgg, 1);
+		egg = mealIngredientRepo.save(egg);
 
 		Meal meal1 = new Meal("Mac & Cheese", 2, butter, milk, macaroni, velveta);
 		meal1 = mealRepo.save(meal1);
