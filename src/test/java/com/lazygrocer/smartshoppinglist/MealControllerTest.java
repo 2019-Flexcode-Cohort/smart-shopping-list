@@ -35,9 +35,9 @@ public class MealControllerTest {
 	@Mock
 	private IngredientRepository ingredientRepo;
 	@Mock
-	private Ingredient ingredient;
+	private MealIngredient mealIngredient;
 	@Mock
-	private Ingredient anotherIngredient;
+	private MealIngredient anotherMealIngredient;
 
 	@Before
 	public void setup() {
@@ -63,14 +63,14 @@ public class MealControllerTest {
 	
 	@Test
 	public void shouldAddAdditionalMealsToModel() {
-		Ingredient ingredientOne = new Ingredient("ingredient one", 2);
-		Ingredient ingredientTwo = new Ingredient("ingredient two", 6);
-		Ingredient ingreidentThree = new Ingredient("ingredient three", 14);
+		MealIngredient mealIngredientOne = new MealIngredient("ingredient one", 2);
+		MealIngredient mealIngredientTwo = new MealIngredient("ingredient two", 6);
+		MealIngredient ingreidentThree = new MealIngredient("ingredient three", 14);
 		
 		String mealName = "meal name";
 		underTest.addMeal(mealName, 4);
 		
-		Meal newMeal = new Meal(mealName, 1, ingredientOne, ingredientTwo, ingreidentThree);
+		Meal newMeal = new Meal(mealName, 1, mealIngredientOne, mealIngredientTwo, ingreidentThree);
 		when(mealRepo.save(newMeal)).thenReturn(newMeal);
 	}
 	
@@ -96,14 +96,14 @@ public class MealControllerTest {
 		verify(testMeal).changeName("newName");
 	}
 	public void shouldDeleteIngredientFromMeal() {
-		Ingredient ingredientOne = mock(Ingredient.class);
-		when(ingredientRepo.findById(1L)).thenReturn(Optional.of(ingredientOne));
+		MealIngredient mealIngredientOne = mock(MealIngredient.class);
+		when(ingredientRepo.findById(1L)).thenReturn(Optional.of(mealIngredientOne));
 		when(mealRepo.findById(2L)).thenReturn(Optional.of(meal));
 		
 		
 		underTest.deleteIngredientFromMeal(2L, 1L);
 		
-		verify(meal).remove(ingredientOne);
+		verify(meal).remove(mealIngredientOne);
 		
 		
 		

@@ -15,14 +15,14 @@ public class MealTest {
 		assertEquals("newName",testMeal.getName());
 	}
 	public void shouldBeAbleToRemoveIngredient() {	
-		Ingredient ingredientOne = new Ingredient("ingredient one", 2);
-		Ingredient ingredientTwo = new Ingredient("ingredient two", 6);
-		Ingredient ingreidentThree = new Ingredient("ingredient three", 14);
+		MealIngredient mealIngredientOne = new MealIngredient("ingredient one", 2);
+		MealIngredient mealIngredientTwo = new MealIngredient("ingredient two", 6);
+		MealIngredient ingreidentThree = new MealIngredient("ingredient three", 14);
 		
-		Meal meal = new Meal ("meal 1", 2, ingredientOne, ingredientTwo, ingreidentThree);
+		Meal meal = new Meal ("meal 1", 2, mealIngredientOne, mealIngredientTwo, ingreidentThree);
 		
-		meal.remove(ingredientOne);
-		assertThat(meal.getIngredients(), containsInAnyOrder(ingredientTwo, ingreidentThree));
+		meal.remove(mealIngredientOne);
+		assertThat(meal.getMealIngredients(), containsInAnyOrder(mealIngredientTwo, ingreidentThree));
 		
 	}
 

@@ -15,15 +15,15 @@ public class Meal {
 	private String name;
 	private int servingCount;
 	@ManyToMany
-	private List<Ingredient> ingredients;
+	private List<MealIngredient> mealIngredients;
 	@Id
 	@GeneratedValue
 	private Long id;
 
-	public Meal(String name, int servingCount, Ingredient... ingredients) {
+	public Meal(String name, int servingCount, MealIngredient... mealIngredients) {
 		this.name = name;
 		this.servingCount = servingCount;
-		this.ingredients = new ArrayList<>( Arrays.asList(ingredients));
+		this.mealIngredients = new ArrayList<>( Arrays.asList(mealIngredients));
 
 	}
 
@@ -38,16 +38,16 @@ public class Meal {
 		return servingCount;
 	}
 
-	public List<Ingredient> getIngredients() {
-		return ingredients;
+	public List<MealIngredient> getMealIngredients() {
+		return mealIngredients;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public void remove(Ingredient ingredient) {
-		ingredients.remove(ingredient);
+	public void remove(MealIngredient mealIngredient) {
+		mealIngredients.remove(mealIngredient);
 	}
 
 	@Override

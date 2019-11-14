@@ -17,17 +17,17 @@ public class Populator implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Ingredient butter = new Ingredient("butter", 1);
+		MealIngredient butter = new MealIngredient("butter", 1);
 		butter = IngredientRepo.save(butter);
-		Ingredient milk = new Ingredient("milk", 1);
+		MealIngredient milk = new MealIngredient("milk", 1);
 		milk = IngredientRepo.save(milk);
-		Ingredient macaroni = new Ingredient("macaroni", 1);
+		MealIngredient macaroni = new MealIngredient("macaroni", 1);
 		macaroni = IngredientRepo.save(macaroni);
-		Ingredient velveta = new Ingredient("velveta", 1);
+		MealIngredient velveta = new MealIngredient("velveta", 1);
 		velveta = IngredientRepo.save(velveta);
-		Ingredient bread = new Ingredient("bread", 2);
+		MealIngredient bread = new MealIngredient("bread", 2);
 		bread = IngredientRepo.save(bread);
-		Ingredient egg = new Ingredient("egg", 1);
+		MealIngredient egg = new MealIngredient("egg", 1);
 		egg = IngredientRepo.save(egg);
 
 		Meal meal1 = new Meal("Mac & Cheese", 2, butter, milk, macaroni, velveta);
