@@ -2,8 +2,8 @@ package com.lazygrocer.smartshoppinglist;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface IngredientRepository extends CrudRepository<Ingredient, Long> {
+public interface IngredientRepository extends CrudRepository<MealIngredient, Long> {
 
-	Ingredient findByName(Ingredient[] ingredients);
+	MealIngredient findByName(MealIngredient[] mealIngredients);
 
 }

@@ -25,18 +25,18 @@ public class JpaWiringTest {
 	
 	@Test
 	public void mealsShouldHaveAListOfIngs() throws Exception {
-		Ingredient testIngredient = new Ingredient("name", 1);
-		testIngredient= ingredientRepo.save(testIngredient);
-		Ingredient testIngredient2 = new Ingredient("name", 2);
-		testIngredient2= ingredientRepo.save(testIngredient2);
-		Meal testMeal = new Meal("name", 1, testIngredient, testIngredient2);
+		MealIngredient testMealIngredient = new MealIngredient("name", 1);
+		testMealIngredient = ingredientRepo.save(testMealIngredient);
+		MealIngredient testMealIngredient2 = new MealIngredient("name", 2);
+		testMealIngredient2 = ingredientRepo.save(testMealIngredient2);
+		Meal testMeal = new Meal("name", 1, testMealIngredient, testMealIngredient2);
 		testMeal = mealRepo.save(testMeal);
 		
 		entityManager.flush();
 		entityManager.clear();
 		
 		Meal retrievedMeal=mealRepo.findById(testMeal.getId()).get();
-		assertThat(retrievedMeal.getIngredients(),containsInAnyOrder(testIngredient2, testIngredient));
+		assertThat(retrievedMeal.getMealIngredients(),containsInAnyOrder(testMealIngredient2, testMealIngredient));
 		
 		
 	}

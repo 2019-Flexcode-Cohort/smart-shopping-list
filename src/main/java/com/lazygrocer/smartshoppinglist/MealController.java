@@ -36,18 +36,18 @@ public class MealController {
 	}
 
 	@RequestMapping("/add-meal")
-	public String addMeal(String mealName, int servings, Ingredient... ingredients) {
-		Ingredient ingredient = ingredientRepo.findByName(ingredients);
+	public String addMeal(String mealName, int servings, MealIngredient... mealIngredients) {
+		MealIngredient mealIngredient = ingredientRepo.findByName(mealIngredients);
 
-		if (ingredient == null) {
-			ingredient = new Ingredient("ingredient name", 12);
-			ingredientRepo.save(ingredient);
+		if (mealIngredient == null) {
+			mealIngredient = new MealIngredient("ingredient name", 12);
+			ingredientRepo.save(mealIngredient);
 		}
 
 		Meal newMeal = mealRepo.findByName(mealName);
 
 		if (newMeal == null) {
-			newMeal = new Meal(mealName, servings, ingredients);
+			newMeal = new Meal(mealName, servings, mealIngredients);
 			mealRepo.save(newMeal);
 		}
 		return "redirect:/meals";
@@ -95,8 +95,8 @@ public class MealController {
 	public String deleteIngredientFromMeal(@PathVariable Long mealId, @PathVariable Long ingredientId) {
 		
 		Meal meal = mealRepo.findById(mealId).get();
-		Ingredient ingredient = ingredientRepo.findById(ingredientId).get();	
-		meal.remove (ingredient);
+		MealIngredient mealIngredient = ingredientRepo.findById(ingredientId).get();
+		meal.remove (mealIngredient);
 		
 //		get meal
 //		get ingredient
