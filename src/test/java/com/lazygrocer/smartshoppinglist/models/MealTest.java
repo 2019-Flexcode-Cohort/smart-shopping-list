@@ -6,11 +6,6 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-
-import com.lazygrocer.smartshoppinglist.models.Ingredient;
-import com.lazygrocer.smartshoppinglist.models.Meal;
-import com.lazygrocer.smartshoppinglist.models.MealIngredient;
-
 public class MealTest {
 
 	@Test
