@@ -1,6 +1,6 @@
-package com.lazygrocer.smartshoppinglist;
+package com.lazygrocer.smartshoppinglist.controllers;
 
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -17,6 +17,15 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
 
+import com.lazygrocer.smartshoppinglist.MealNotFoundException;
+import com.lazygrocer.smartshoppinglist.controllers.MealController;
+import com.lazygrocer.smartshoppinglist.models.Ingredient;
+import com.lazygrocer.smartshoppinglist.models.Meal;
+import com.lazygrocer.smartshoppinglist.models.MealIngredient;
+import com.lazygrocer.smartshoppinglist.repositories.IngredientRepository;
+import com.lazygrocer.smartshoppinglist.repositories.MealIngredientRepository;
+import com.lazygrocer.smartshoppinglist.repositories.MealRepository;
+
 public class MealControllerTest {
 
 	@InjectMocks
@@ -32,6 +41,8 @@ public class MealControllerTest {
 	private Meal anotherMeal;
 	@Mock
 	private Model model;
+	@Mock
+	private MealIngredientRepository mealIngredientRepo;
 	@Mock
 	private IngredientRepository ingredientRepo;
 	@Mock
@@ -63,15 +74,29 @@ public class MealControllerTest {
 	
 	@Test
 	public void shouldAddAdditionalMealsToModel() {
-		MealIngredient mealIngredientOne = new MealIngredient("ingredient one", 2);
-		MealIngredient mealIngredientTwo = new MealIngredient("ingredient two", 6);
-		MealIngredient ingreidentThree = new MealIngredient("ingredient three", 14);
+		Ingredient ingredient1 = new Ingredient("ingredient1");
+		ingredient1=ingredientRepo.save(ingredient1);
+		MealIngredient mealIngredientOne = new MealIngredient(ingredient1, 2);
+		mealIngredientOne= mealIngredientRepo.save(mealIngredientOne);
+		
+		Ingredient ingredient2 = new Ingredient("ingredient2");
+		ingredient2= ingredientRepo.save(ingredient2);
+		MealIngredient mealIngredientTwo = new MealIngredient(ingredient2, 6);
+		mealIngredientTwo=mealIngredientRepo.save(mealIngredientTwo);
+		
+		Ingredient ingredient3 = new Ingredient("ingredient3");
+		ingredient2= ingredientRepo.save(ingredient3);
+		MealIngredient mealIngredientThree = new MealIngredient(ingredient3, 14);
+		mealIngredientThree = mealIngredientRepo.save(mealIngredientThree);
+		
 		
 		String mealName = "meal name";
 		underTest.addMeal(mealName, 4);
 		
-		Meal newMeal = new Meal(mealName, 1, mealIngredientOne, mealIngredientTwo, ingreidentThree);
+		Meal newMeal = new Meal(mealName, 1, mealIngredientOne, mealIngredientTwo, mealIngredientThree);
+		
 		when(mealRepo.save(newMeal)).thenReturn(newMeal);
+		
 	}
 	
 	@Test
@@ -97,7 +122,7 @@ public class MealControllerTest {
 	}
 	public void shouldDeleteIngredientFromMeal() {
 		MealIngredient mealIngredientOne = mock(MealIngredient.class);
-		when(ingredientRepo.findById(1L)).thenReturn(Optional.of(mealIngredientOne));
+		when(mealIngredientRepo.findById(1L)).thenReturn(Optional.of(mealIngredientOne));
 		when(mealRepo.findById(2L)).thenReturn(Optional.of(meal));
 		
 		

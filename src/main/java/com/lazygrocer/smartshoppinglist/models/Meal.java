@@ -1,4 +1,4 @@
-package com.lazygrocer.smartshoppinglist;
+package com.lazygrocer.smartshoppinglist.models;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,23 +7,28 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Meal {
 
 	private String name;
 	private int servingCount;
-	@ManyToMany
-	private List<MealIngredient> mealIngredients;
 	@Id
 	@GeneratedValue
 	private Long id;
+	
+	@OneToMany(mappedBy="meal")
+	private List<MealIngredient> mealIngredients;
 
 	public Meal(String name, int servingCount, MealIngredient... mealIngredients) {
 		this.name = name;
 		this.servingCount = servingCount;
 		this.mealIngredients = new ArrayList<>( Arrays.asList(mealIngredients));
+		this.mealIngredients.stream()
+							.forEach((mealIngredient) ->{
+							   mealIngredient.addMeal(this);	
+							});
 
 	}
 

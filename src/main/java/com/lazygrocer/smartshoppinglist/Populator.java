@@ -5,6 +5,13 @@ import javax.annotation.Resource;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import com.lazygrocer.smartshoppinglist.models.Ingredient;
+import com.lazygrocer.smartshoppinglist.models.Meal;
+import com.lazygrocer.smartshoppinglist.models.MealIngredient;
+import com.lazygrocer.smartshoppinglist.repositories.IngredientRepository;
+import com.lazygrocer.smartshoppinglist.repositories.MealIngredientRepository;
+import com.lazygrocer.smartshoppinglist.repositories.MealRepository;
+
 @Component
 public class Populator implements CommandLineRunner {
 
@@ -12,27 +19,41 @@ public class Populator implements CommandLineRunner {
 	private MealRepository mealRepo;
 
 	@Resource
-	IngredientRepository IngredientRepo;
+	MealIngredientRepository mealIngredientRepo;
+	@Resource
+	IngredientRepository ingredientRepo;
 
 	@Override
 	public void run(String... args) throws Exception {
 
-		MealIngredient butter = new MealIngredient("butter", 1);
-		butter = IngredientRepo.save(butter);
-		MealIngredient milk = new MealIngredient("milk", 1);
-		milk = IngredientRepo.save(milk);
-		MealIngredient macaroni = new MealIngredient("macaroni", 1);
-		macaroni = IngredientRepo.save(macaroni);
-		MealIngredient velveta = new MealIngredient("velveta", 1);
-		velveta = IngredientRepo.save(velveta);
-		MealIngredient bread = new MealIngredient("bread", 2);
-		bread = IngredientRepo.save(bread);
-		MealIngredient egg = new MealIngredient("egg", 1);
-		egg = IngredientRepo.save(egg);
+		Ingredient iButter = new Ingredient("butter");
+		iButter = ingredientRepo.save(iButter);
+		MealIngredient butter = new MealIngredient(iButter, 1);
+		butter = mealIngredientRepo.save(butter);
 
-		Meal meal1 = new Meal("Mac & Cheese", 2, butter, milk, macaroni, velveta);
+		Ingredient iMilk = ingredientRepo.save(new Ingredient("milk"));
+		MealIngredient milk = new MealIngredient(iMilk, 1);
+		milk = mealIngredientRepo.save(milk);
+
+		Ingredient iMacaroni = ingredientRepo.save(new Ingredient("macaroni"));
+		MealIngredient macaroni = new MealIngredient(iMacaroni, 1);
+		macaroni = mealIngredientRepo.save(macaroni);
+
+		Ingredient iVelveeta = ingredientRepo.save(new Ingredient("velveeta"));
+		MealIngredient velveeta = new MealIngredient(iVelveeta, 1);
+		velveeta = mealIngredientRepo.save(velveeta);
+		
+		Ingredient iBread = ingredientRepo.save(new Ingredient("bread"));
+		MealIngredient bread = new MealIngredient(iBread, 2);
+		bread = mealIngredientRepo.save(bread);
+
+		Ingredient iEgg = ingredientRepo.save(new Ingredient("egg"));
+		MealIngredient egg = new MealIngredient(iEgg, 1);
+		egg = mealIngredientRepo.save(egg);
+
+		Meal meal1 = new Meal("Mac & Cheese", 2, butter, milk, macaroni, velveeta);
 		meal1 = mealRepo.save(meal1);
-		Meal meal2 = new Meal("Grilled Cheese", 1, butter, bread, velveta);
+		Meal meal2 = new Meal("Grilled Cheese", 1, butter, bread, velveeta);
 		meal2 = mealRepo.save(meal2);
 		Meal meal3 = new Meal("Scrambled Eggs", 1, butter, egg, milk);
 		meal3 = mealRepo.save(meal3);

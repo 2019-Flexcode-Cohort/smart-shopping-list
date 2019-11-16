@@ -11,12 +11,21 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.lazygrocer.smartshoppinglist.models.Ingredient;
+import com.lazygrocer.smartshoppinglist.models.Meal;
+import com.lazygrocer.smartshoppinglist.models.MealIngredient;
+import com.lazygrocer.smartshoppinglist.repositories.IngredientRepository;
+import com.lazygrocer.smartshoppinglist.repositories.MealIngredientRepository;
+import com.lazygrocer.smartshoppinglist.repositories.MealRepository;
+
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class JpaWiringTest {
 
 	@Resource
-	 private IngredientRepository ingredientRepo;
+	 private MealIngredientRepository mealIngredientRepo;
+	@Resource
+	private IngredientRepository ingredientRepo;
 	@Resource
 	private MealRepository mealRepo;
 	@Resource
@@ -25,10 +34,14 @@ public class JpaWiringTest {
 	
 	@Test
 	public void mealsShouldHaveAListOfIngs() throws Exception {
-		MealIngredient testMealIngredient = new MealIngredient("name", 1);
-		testMealIngredient = ingredientRepo.save(testMealIngredient);
-		MealIngredient testMealIngredient2 = new MealIngredient("name", 2);
-		testMealIngredient2 = ingredientRepo.save(testMealIngredient2);
+		Ingredient iName = new Ingredient("name");
+		Ingredient iName2= new Ingredient("name2");
+		iName = ingredientRepo.save(iName);
+		iName2 = ingredientRepo.save(iName2);
+		MealIngredient testMealIngredient = new MealIngredient(iName, 1);
+		testMealIngredient = mealIngredientRepo.save(testMealIngredient);
+		MealIngredient testMealIngredient2 = new MealIngredient(iName, 2);
+		testMealIngredient2 = mealIngredientRepo.save(testMealIngredient2);
 		Meal testMeal = new Meal("name", 1, testMealIngredient, testMealIngredient2);
 		testMeal = mealRepo.save(testMeal);
 		
