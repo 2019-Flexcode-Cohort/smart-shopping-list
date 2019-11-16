@@ -70,4 +70,15 @@ public class MealIngredient {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "MealIngredient [ingredient=" + ingredient + ", quantity=" + quantity + ", id=" + id + ", meal=" + meal
+				+ "]";
+	}
+
+	public void addMeal(Meal meal) {
+	this.meal=meal;
+		
+	}
+
 }

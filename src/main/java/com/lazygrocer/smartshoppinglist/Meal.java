@@ -25,6 +25,10 @@ public class Meal {
 		this.name = name;
 		this.servingCount = servingCount;
 		this.mealIngredients = new ArrayList<>( Arrays.asList(mealIngredients));
+		this.mealIngredients.stream()
+							.forEach((mealIngredient) ->{
+							   mealIngredient.addMeal(this);	
+							});
 
 	}
 
