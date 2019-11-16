@@ -54,10 +54,12 @@ public class MealController {
 	public String addMeal(Model model) {
 		return "AddMeal";
 	}
+	
+//	@PostMapping("/add-meal")
+//	public String addMeal()
 
 	@PostMapping("/add-meal")
-	public String addMeal(@RequestParam String mealName, @RequestParam int servings,
-			@RequestParam MealIngredient... mealIngredients) {
+	public String addMeal(@RequestParam String mealName, @RequestParam String mealIngredient, @RequestParam int servings) {
 //		MealIngredient mealIngredient = mealIngredientRepo.findByName(mealIngredients);
 //
 //		if (mealIngredient == null) {
@@ -71,7 +73,7 @@ public class MealController {
 //			newMeal = new Meal(mealName, servings, mealIngredients);
 //			mealRepo.save(newMeal);
 //		}
-		return "redirect:/meals";
+//		return "redirect:/meals";
 	}
 	
 	
