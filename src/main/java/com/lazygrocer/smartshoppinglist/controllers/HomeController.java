@@ -1,9 +1,11 @@
-package com.lazygrocer.smartshoppinglist;
+package com.lazygrocer.smartshoppinglist.controllers;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
+import com.lazygrocer.smartshoppinglist.repositories.MealRepository;
 
 @Controller
 public class HomeController {

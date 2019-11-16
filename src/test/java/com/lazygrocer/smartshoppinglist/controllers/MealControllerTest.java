@@ -1,4 +1,4 @@
-package com.lazygrocer.smartshoppinglist;
+package com.lazygrocer.smartshoppinglist.controllers;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.junit.Assert.assertThat;
@@ -16,6 +16,15 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
+
+import com.lazygrocer.smartshoppinglist.MealNotFoundException;
+import com.lazygrocer.smartshoppinglist.controllers.MealController;
+import com.lazygrocer.smartshoppinglist.models.Ingredient;
+import com.lazygrocer.smartshoppinglist.models.Meal;
+import com.lazygrocer.smartshoppinglist.models.MealIngredient;
+import com.lazygrocer.smartshoppinglist.repositories.IngredientRepository;
+import com.lazygrocer.smartshoppinglist.repositories.MealIngredientRepository;
+import com.lazygrocer.smartshoppinglist.repositories.MealRepository;
 
 public class MealControllerTest {
 

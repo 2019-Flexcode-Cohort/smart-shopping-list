@@ -1,4 +1,4 @@
-package com.lazygrocer.smartshoppinglist;
+package com.lazygrocer.smartshoppinglist.models;
 
 import java.util.List;
 

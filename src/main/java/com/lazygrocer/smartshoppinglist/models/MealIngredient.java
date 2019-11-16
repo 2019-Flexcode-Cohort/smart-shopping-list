@@ -1,4 +1,4 @@
-package com.lazygrocer.smartshoppinglist;
+package com.lazygrocer.smartshoppinglist.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

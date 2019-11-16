@@ -1,8 +1,10 @@
-package com.lazygrocer.smartshoppinglist;
+package com.lazygrocer.smartshoppinglist.repositories;
 
 import java.util.Collection;
 
 import org.springframework.data.repository.CrudRepository;
+
+import com.lazygrocer.smartshoppinglist.models.Meal;
 
 public interface MealRepository extends CrudRepository<Meal, Long> {
 
