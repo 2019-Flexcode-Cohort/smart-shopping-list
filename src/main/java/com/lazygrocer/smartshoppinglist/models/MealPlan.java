@@ -15,7 +15,6 @@ public class MealPlan {
 			meals = new ArrayList<>();
 		}
 		meals.add(meal);
-
 	}
 
 	public int mealCount() {

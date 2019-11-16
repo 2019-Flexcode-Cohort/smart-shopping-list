@@ -74,8 +74,6 @@ public class MealController {
 		return "redirect:/meals";
 	}
 	
-	
-
 //	@DeleteMapping("/delete-meal")
 //	public String deleteMealByName(String mealName) {
 //		if (mealRepo.findByName(mealName) != null) {
