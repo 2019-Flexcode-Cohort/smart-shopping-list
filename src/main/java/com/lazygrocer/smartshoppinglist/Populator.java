@@ -57,6 +57,12 @@ public class Populator implements CommandLineRunner {
 		meal2 = mealRepo.save(meal2);
 		Meal meal3 = new Meal("Scrambled Eggs", 1, butter, egg, milk);
 		meal3 = mealRepo.save(meal3);
+		butter = mealIngredientRepo.save(butter);
+		milk = mealIngredientRepo.save(milk);
+		macaroni = mealIngredientRepo.save(macaroni);
+		velveeta = mealIngredientRepo.save(velveeta);
+		bread = mealIngredientRepo.save(bread);
+		egg = mealIngredientRepo.save(egg);
 
 	}
 
