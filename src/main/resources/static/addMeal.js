@@ -50,3 +50,32 @@ function createRemoveItemButton() {
   removeButton.classList.add('remove-ingredient-button');
   return removeButton;
 }
+
+const actionObject = {
+  "name": "AwesomeName",
+  "servingCount": 1,
+  "mealIngredients": [
+    {
+      "ingredient": {
+        "name": "TestIngredient"
+      },
+      "quantity": 1
+    }
+  ]
+}
+
+document.querySelector(".submit").addEventListener("click", event => {
+  event.preventDefault();
+  sendMealToAPI(actionObject)
+});
+
+function sendMealToAPI(obj) {
+  const response = await fetch('http://localhost:8080/add-meal');
+  const myJson = await response.json();
+  console.log(JSON.stringify(myJson))
+
+}
+
+
+
+
