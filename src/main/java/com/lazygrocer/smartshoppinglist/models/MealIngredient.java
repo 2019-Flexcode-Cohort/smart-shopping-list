@@ -39,6 +39,10 @@ public class MealIngredient {
 		return id;
 	}
 
+	public Meal getMeal() {
+		return meal;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

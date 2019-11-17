@@ -3,6 +3,8 @@ package com.lazygrocer.smartshoppinglist.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+@Service
 public class MealPlan {
 
 	private List<Meal> meals;
@@ -27,9 +29,16 @@ public class MealPlan {
 		return meals;
 	}
 
-	public int fetchMealCount(Meal meal) {
-		
-		return 2;
+	public int fetchMealCount(Meal mealToCount) {
+		int count=0;
+		for(Meal meal: meals) {
+			if(meal.equals(mealToCount)) {
+				count++;
+			}
+		}
+					 
+		return count;
+			 
 	}
 	
 
