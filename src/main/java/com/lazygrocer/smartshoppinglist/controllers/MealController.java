@@ -30,6 +30,7 @@ public class MealController {
 	@Resource
 	private MealPlan mealPlan;
 
+
 	@RequestMapping("/edit-meal/{id}")
 	public String findOneMeal(@PathVariable long id, Model model) throws MealNotFoundException {
 		Optional<Meal> meal = mealRepo.findById(id);
@@ -94,26 +95,26 @@ public class MealController {
 
 //	@RequestMapping("/change-meal-name/{id}/{newMealName}")
 //	public String changeMealName(@PathVariable Long id, @PathVariable String newMealName) {
-//		
+//
 //		Meal meal = mealRepo.findById(id).get();
 //
-//			meal.changeName(newMealName);
-//			mealRepo.save(meal);
+//		meal.changeName(newMealName);
+//		mealRepo.save(meal);
 //
 //		return "redirect:/meal";
 //	}
-//	
+//
 //	@RequestMapping("/meal/{mealId}/remove-ingredient/{ingredientId}")
 //	public String deleteIngredientFromMeal(@PathVariable Long mealId, @PathVariable Long ingredientId) {
-//		
+//
 //		Meal meal = mealRepo.findById(mealId).get();
 //		MealIngredient mealIngredient = mealIngredientRepo.findById(ingredientId).get();
-//		meal.remove (mealIngredient);
-//		
+//		meal.remove(mealIngredient);
+//
 ////		get meal
 ////		get ingredient
 ////		remove ingredient
-//		
+//
 //		return "/meal";
 //	}
 

@@ -1,7 +1,5 @@
 package com.lazygrocer.smartshoppinglist.controllers;
 
-import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -18,7 +16,6 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
 
 import com.lazygrocer.smartshoppinglist.MealNotFoundException;
-import com.lazygrocer.smartshoppinglist.controllers.MealController;
 import com.lazygrocer.smartshoppinglist.models.Ingredient;
 import com.lazygrocer.smartshoppinglist.models.Meal;
 import com.lazygrocer.smartshoppinglist.models.MealIngredient;
@@ -93,13 +90,13 @@ public class MealControllerTest {
 		
 	}
 	
-	@Test
-	public void shouldRemoveMealFromModelByName() {
-		String mealName = meal.getName();
-		when(mealRepo.findByName(mealName)).thenReturn(meal);
-		underTest.deleteMealByName(mealName);
-		verify(mealRepo).delete(meal);
-	}
+//	@Test
+//	public void shouldRemoveMealFromModelByName() {
+//		String mealName = meal.getName();
+//		when(mealRepo.findByName(mealName)).thenReturn(meal);
+//		underTest.deleteMealByName(mealName);
+//		verify(mealRepo).delete(meal);
+//	}
 	
 //	@Test 
 //	public void shouldRemoveMealFromModelById() {

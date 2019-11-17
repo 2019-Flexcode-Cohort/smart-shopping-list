@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 public class MealPlan {
 
 	private List<Meal> meals;
-	
+
 	public void addMeal(Meal meal) {
-		if(meals == null) {
+		if (meals == null) {
 			meals = new ArrayList<>();
 		}
 		meals.add(meal);
-		
+
 	}
 
 	public int mealCount() {
@@ -30,16 +30,13 @@ public class MealPlan {
 	}
 
 	public int fetchMealCount(Meal mealToCount) {
-		int count=0;
-		for(Meal meal: meals) {
-			if(meal.equals(mealToCount)) {
+		int count = 0;
+		for (Meal meal : meals) {
+			if (meal.equals(mealToCount)) {
 				count++;
 			}
 		}
-					 
 		return count;
-			 
 	}
-	
 
 }
