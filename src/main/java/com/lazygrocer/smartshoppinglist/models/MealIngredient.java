@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class MealIngredient {
 
@@ -13,8 +15,8 @@ public class MealIngredient {
 	private int quantity;
 	@Id
 	@GeneratedValue
-	private long id;
-
+	private Long id;
+	@JsonIgnore
 	@ManyToOne
 	private Meal meal;
 
@@ -35,8 +37,12 @@ public class MealIngredient {
 		return quantity;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
+	}
+
+	public Meal getMeal() {
+		return meal;
 	}
 
 	@Override

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html xmls:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+        <div>
+            <h1 th:text="${meal.name}"> </h1>
+        </div>
+        <input type="text" th:value="${meal.name}" name='name' />
+        <ul class='addNewIng'>
+            <li th:each="mealIngredient:${meal.mealIngredients}">
+                <input type="text" th:value=${mealIngredient.ingredient.name} />
+                <input type="number" th:value=${mealIngredient.quantity} name="Qty"></input> <button>X</button>
+            </li>
+
+        </ul>
+
+
+        <div>
+            <Button> Save Meal</Button>
+            <a href="/meals">Cancel</Button>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+    <script src="/edit-meal.js"></script>
+
+</body>
+
+</html>

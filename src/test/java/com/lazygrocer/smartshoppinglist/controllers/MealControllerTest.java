@@ -72,23 +72,17 @@ public class MealControllerTest {
 	@Test
 	public void shouldAddAdditionalMealsToModel() {
 		Ingredient ingredient1 = new Ingredient("ingredient1");
-		ingredient1=ingredientRepo.save(ingredient1);
 		MealIngredient mealIngredientOne = new MealIngredient(ingredient1, 2);
-		mealIngredientOne= mealIngredientRepo.save(mealIngredientOne);
-		
+	
 		Ingredient ingredient2 = new Ingredient("ingredient2");
-		ingredient2= ingredientRepo.save(ingredient2);
 		MealIngredient mealIngredientTwo = new MealIngredient(ingredient2, 6);
-		mealIngredientTwo=mealIngredientRepo.save(mealIngredientTwo);
 		
 		Ingredient ingredient3 = new Ingredient("ingredient3");
-		ingredient2= ingredientRepo.save(ingredient3);
 		MealIngredient mealIngredientThree = new MealIngredient(ingredient3, 14);
-		mealIngredientThree = mealIngredientRepo.save(mealIngredientThree);
 		
 		
 		String mealName = "meal name";
-//		underTest.addMeal(mealName, 4);
+		underTest.addMeal(mealName, 4);
 		
 		Meal newMeal = new Meal(mealName, 1, mealIngredientOne, mealIngredientTwo, mealIngredientThree);
 		
@@ -104,12 +98,12 @@ public class MealControllerTest {
 //		verify(mealRepo).delete(meal);
 //	}
 	
-	@Test 
-	public void shouldRemoveMealFromModelById() {
-		underTest.deleteMealById(mealId);
-		verify(mealRepo).deleteById(mealId);
-	}
-	
+//	@Test 
+//	public void shouldRemoveMealFromModelById() {
+//		underTest.deleteMealById(mealId);
+//		verify(mealRepo).deleteById(mealId);
+//	}
+//	
 //	@Test
 //	public void shouldChangeMealName() {
 //		Meal testMeal = mock(Meal.class);
@@ -126,10 +120,7 @@ public class MealControllerTest {
 //		underTest.deleteIngredientFromMeal(2L, 1L);
 //		
 //		verify(meal).remove(mealIngredientOne);
-//		
-//		
-//		
 //	}
-//	
+	
 	
 }
