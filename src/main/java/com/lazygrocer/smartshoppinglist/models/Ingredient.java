@@ -6,14 +6,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Ingredient {
 
     private String name;
     @Id
 	@GeneratedValue
-	private long id;
-
+	private Long id;
+    @JsonIgnore
     @OneToMany(mappedBy="ingredient")
 	private List<MealIngredient> mealIngredients;
     
@@ -26,7 +28,7 @@ public class Ingredient {
         return name;
     }
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

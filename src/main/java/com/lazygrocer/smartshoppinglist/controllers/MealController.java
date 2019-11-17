@@ -27,9 +27,9 @@ public class MealController {
 	private MealRepository mealRepo;
 	@Resource
 	private MealIngredientRepository mealIngredientRepo;
-
 	@Resource
 	private MealPlan mealPlan;
+
 
 	@RequestMapping("/edit-meal/{id}")
 	public String findOneMeal(@PathVariable long id, Model model) throws MealNotFoundException {
@@ -49,14 +49,16 @@ public class MealController {
 		return ("meals");
 
 	}
-
+	
 	@GetMapping("/add-meal")
 	public String addMeal(Model model) {
-		return "AddMeal";
+		return "add-meal";
 	}
-
+	
+	
+	
 	@PostMapping("/add-meal")
-	public String addMeal(@RequestParam String mealName, @RequestParam int servings,
+	public String addMeal(@RequestParam String mealName, @RequestParam int servings, 
 			@RequestParam MealIngredient... mealIngredients) {
 //		MealIngredient mealIngredient = mealIngredientRepo.findByName(mealIngredients);
 //
@@ -74,27 +76,22 @@ public class MealController {
 		return "redirect:/meals";
 	}
 	
-//	@DeleteMapping("/delete-meal")
-//	public String deleteMealByName(String mealName) {
-//		if (mealRepo.findByName(mealName) != null) {
-//			Meal deleteMeal = mealRepo.findByName(mealName);
-//			mealRepo.delete(deleteMeal);
-//		}
-//		return "redirect:/meals";
-//	}
 
 	@DeleteMapping("/delete-meal/{id}")
 	public String deleteMealById(@PathVariable long id) {
 		mealRepo.deleteById(id);
+    
+	@DeleteMapping("/delete-meal")
+	public String deleteMealByName(String mealName) {
+		if (mealRepo.findByName(mealName) != null) {
+			Meal deleteMeal = mealRepo.findByName(mealName);
+			mealRepo.delete(deleteMeal);
+		}
 		return "redirect:/meals";
 	}
 
-//	@RequestMapping("/find-meal")
-//	public String findMeal(String mealName, Model model) {
-//		model.addAttribute("meals", mealRepo.findByName(mealName));
-//		return "/meal";
-//	}
 
+	
 //	@RequestMapping("/sort-meals")
 //	public String sortMeals(Model model) {
 //		model.addAttribute("meals", mealRepo.findAllByOrderByNameAsc());

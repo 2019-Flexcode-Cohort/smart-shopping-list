@@ -2,6 +2,7 @@ package com.lazygrocer.smartshoppinglist;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.is;
 
 import javax.annotation.Resource;
 
@@ -49,8 +50,11 @@ public class JpaWiringTest {
 		entityManager.clear();
 		
 		Meal retrievedMeal=mealRepo.findById(testMeal.getId()).get();
-		assertThat(retrievedMeal.getMealIngredients(),containsInAnyOrder(testMealIngredient2, testMealIngredient));
-		
+		assertThat(retrievedMeal.getMealIngredients(),
+				containsInAnyOrder(testMealIngredient2, testMealIngredient));
+		assertThat(testMealIngredient.getMeal(), is(retrievedMeal));
+		assertThat(mealIngredientRepo.findById(testMealIngredient.getId()).get().getMeal(),
+				is(testMeal));
 		
 	}
 	

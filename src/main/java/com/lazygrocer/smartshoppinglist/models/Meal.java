@@ -17,19 +17,23 @@ public class Meal {
 	@Id
 	@GeneratedValue
 	private Long id;
-	
-	@OneToMany(mappedBy="meal")
+
+	@OneToMany(mappedBy = "meal")
 	private List<MealIngredient> mealIngredients;
 
 	public Meal(String name, int servingCount, MealIngredient... mealIngredients) {
 		this.name = name;
 		this.servingCount = servingCount;
-		this.mealIngredients = new ArrayList<>( Arrays.asList(mealIngredients));
-		this.mealIngredients.stream()
-							.forEach((mealIngredient) ->{
-							   mealIngredient.addMeal(this);	
-							});
+		this.mealIngredients = new ArrayList<>(Arrays.asList(mealIngredients));
+		this.mealIngredients.stream().forEach((mealIngredient) -> {
+			mealIngredient.addMeal(this);
+		});
 
+	}
+
+	public Meal(String name, int servingCount) {
+		this.name = name;
+		this.servingCount = servingCount;
 	}
 
 	protected Meal() {
@@ -88,6 +92,7 @@ public class Meal {
 			return false;
 		return true;
 	}
+
 	public void changeName(String newName) {
 		this.name = newName;
 	}
