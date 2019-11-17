@@ -60,20 +60,20 @@ public class MealController {
 
 	@PostMapping("/add-meal")
 	public String addMeal(@RequestParam String mealName, @RequestParam String mealIngredient, @RequestParam int servings) {
-//		MealIngredient mealIngredient = mealIngredientRepo.findByName(mealIngredients);
-//
-//		if (mealIngredient == null) {
-//			mealIngredient = new MealIngredient(ingredient, 12);
-//			mealIngredientRepo.save(mealIngredient);
-//		}
-//
-//		Meal newMeal = mealRepo.findByName(mealName);
-//
-//		if (newMeal == null) {
-//			newMeal = new Meal(mealName, servings, mealIngredients);
-//			mealRepo.save(newMeal);
-//		}
-//		return "redirect:/meals";
+		MealIngredient mealIngredient = mealIngredientRepo.findByName(mealIngredients);
+
+		if (mealIngredient == null) {
+			mealIngredient = new MealIngredient(ingredient, 12);
+			mealIngredientRepo.save(mealIngredient);
+		}
+
+		Meal newMeal = mealRepo.findByName(mealName);
+
+		if (newMeal == null) {
+			newMeal = new Meal(mealName, servings, mealIngredients);
+			mealRepo.save(newMeal);
+		}
+		return "redirect:/meals";
 	}
 	
 	
