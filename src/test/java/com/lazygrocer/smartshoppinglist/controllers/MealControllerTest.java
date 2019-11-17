@@ -82,7 +82,7 @@ public class MealControllerTest {
 		
 		
 		String mealName = "meal name";
-		underTest.addMeal(mealName, 4);
+//		underTest.addMeal(mealName, 4);
 		
 		Meal newMeal = new Meal(mealName, 1, mealIngredientOne, mealIngredientTwo, mealIngredientThree);
 		
