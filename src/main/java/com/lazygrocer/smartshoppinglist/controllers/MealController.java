@@ -80,6 +80,8 @@ public class MealController {
 	@DeleteMapping("/delete-meal/{id}")
 	public String deleteMealById(@PathVariable long id) {
 		mealRepo.deleteById(id);
+		return "/meals";
+	}
     
 	@DeleteMapping("/delete-meal")
 	public String deleteMealByName(String mealName) {

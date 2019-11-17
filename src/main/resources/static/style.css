@@ -130,6 +130,7 @@ nav>button:hover, .nav-right>button:hover {
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
+  border-bottom: 1px solid var(--green);
 }
 
 .mealList a {
