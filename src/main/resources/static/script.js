@@ -29,11 +29,13 @@ function createIngredientInput() {
 function createNameBox() {
   const nameBox = document.createElement("input");
   nameBox.setAttribute("type", "text");
+  nameBox.setAttribute("placeholder", "Ingredient Name");
   return nameBox;
 }
 function createNumberBox() {
   const numberBox = document.createElement("input");
   numberBox.setAttribute("type", "number");
+  numberBox.setAttribute("placeholder", "Qty");
   return numberBox;
 }
 function createAddItemButton() {

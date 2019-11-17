@@ -13,8 +13,8 @@
     <form method="post">
 
         <div>
-            <label>Enter Meal Name</label>
-            <input type="text" name="mealName" value="Meal Name">
+            <label>Add Meal Name</label>
+            <input type="text" name="mealName" th:value="${meal.name}">
         </div>
 
         <ul class='app'>
@@ -45,7 +45,7 @@
             <button th:formaction="@{/add-meal}">Save Meal</button>
         </div>
         <div>
-            <button th:formaction="@{/meals}">Cancel</button>
+            <p><a href="/meals">Cancel</a></p>
         </div>
         <!-- list the meal & ingredients for it -->
     </form>
