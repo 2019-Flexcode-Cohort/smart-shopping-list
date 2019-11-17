@@ -27,9 +27,9 @@ public class MealController {
 	private MealRepository mealRepo;
 	@Resource
 	private MealIngredientRepository mealIngredientRepo;
+
 	@Resource
 	private MealPlan mealPlan;
-
 
 	@RequestMapping("/edit-meal/{id}")
 	public String findOneMeal(@PathVariable long id, Model model) throws MealNotFoundException {
@@ -49,37 +49,16 @@ public class MealController {
 		return ("meals");
 
 	}
-	
+
 	@GetMapping("/add-meal")
 	public String addMeal(Model model) {
-		return "add-meal";
+		return "AddMeal";
 	}
 	
-<<<<<<< HEAD
+
 //	@PostMapping("/add-meal")
-//	public String addMeal()
-
-	@PostMapping("/add-meal")
-	public String addMeal(@RequestParam String mealName, @RequestParam String mealIngredient, @RequestParam int servings) {
-		MealIngredient mealIngredient = mealIngredientRepo.findByName(mealIngredients);
-
-		if (mealIngredient == null) {
-			mealIngredient = new MealIngredient(ingredient, 12);
-			mealIngredientRepo.save(mealIngredient);
-		}
-
-		Meal newMeal = mealRepo.findByName(mealName);
-
-		if (newMeal == null) {
-			newMeal = new Meal(mealName, servings, mealIngredients);
-			mealRepo.save(newMeal);
-		}
-=======
-	
-	
-	@PostMapping("/add-meal")
-	public String addMeal(@RequestParam String mealName, @RequestParam int servings, 
-			@RequestParam MealIngredient... mealIngredients) {
+//	public String addMeal(@RequestParam String mealName, @RequestParam int servings,
+//			@RequestParam MealIngredient... mealIngredients) {
 //		MealIngredient mealIngredient = mealIngredientRepo.findByName(mealIngredients);
 //
 //		if (mealIngredient == null) {
@@ -93,21 +72,32 @@ public class MealController {
 //			newMeal = new Meal(mealName, servings, mealIngredients);
 //			mealRepo.save(newMeal);
 //		}
->>>>>>> dev
-		return "redirect:/meals";
-	}
+//		return "redirect:/meals";
+//	}
 	
-	@DeleteMapping("/delete-meal")
-	public String deleteMealByName(String mealName) {
-		if (mealRepo.findByName(mealName) != null) {
-			Meal deleteMeal = mealRepo.findByName(mealName);
-			mealRepo.delete(deleteMeal);
-		}
+	
+
+//	@DeleteMapping("/delete-meal")
+//	public String deleteMealByName(String mealName) {
+//		if (mealRepo.findByName(mealName) != null) {
+//			Meal deleteMeal = mealRepo.findByName(mealName);
+//			mealRepo.delete(deleteMeal);
+//		}
+//		return "redirect:/meals";
+//	}
+
+	@DeleteMapping("/delete-meal/{id}")
+	public String deleteMealById(@PathVariable long id) {
+		mealRepo.deleteById(id);
 		return "redirect:/meals";
 	}
 
+//	@RequestMapping("/find-meal")
+//	public String findMeal(String mealName, Model model) {
+//		model.addAttribute("meals", mealRepo.findByName(mealName));
+//		return "/meal";
+//	}
 
-	
 //	@RequestMapping("/sort-meals")
 //	public String sortMeals(Model model) {
 //		model.addAttribute("meals", mealRepo.findAllByOrderByNameAsc());
