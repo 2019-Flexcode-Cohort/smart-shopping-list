@@ -17,11 +17,11 @@
             <input type="text" name="mealName" value="Meal Name">
         </div>
 
-<div class='app'>
-<p>Add Ingredient</p>
-    </div>
+        <ul class='app'>
+            <p>Add Ingredient</p>
+        </ul>
 
-      <!--    <div>
+        <!--    <div>
             <label>Enter Ingredient</label>
             <input type="text" name="mealIngredient" value="Ingredient">
         </div>
@@ -44,10 +44,13 @@
         <div>
             <button th:formaction="@{/add-meal}">Save Meal</button>
         </div>
+        <div>
+            <button th:formaction="@{/meals}">Cancel</button>
+        </div>
         <!-- list the meal & ingredients for it -->
     </form>
 
-    
+
 
     <script src="../static/script.js"> </script>
 </body>
