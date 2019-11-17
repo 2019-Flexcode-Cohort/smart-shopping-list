@@ -28,36 +28,45 @@ public class Populator implements CommandLineRunner {
 
 		Ingredient iButter = new Ingredient("butter");
 		iButter = ingredientRepo.save(iButter);
-		MealIngredient butter = new MealIngredient(iButter, 1);
-		butter = mealIngredientRepo.save(butter);
 
 		Ingredient iMilk = ingredientRepo.save(new Ingredient("milk"));
-		MealIngredient milk = new MealIngredient(iMilk, 1);
-		milk = mealIngredientRepo.save(milk);
 
 		Ingredient iMacaroni = ingredientRepo.save(new Ingredient("macaroni"));
-		MealIngredient macaroni = new MealIngredient(iMacaroni, 1);
-		macaroni = mealIngredientRepo.save(macaroni);
 
 		Ingredient iVelveeta = ingredientRepo.save(new Ingredient("velveeta"));
-		MealIngredient velveeta = new MealIngredient(iVelveeta, 1);
-		velveeta = mealIngredientRepo.save(velveeta);
-		
+
 		Ingredient iBread = ingredientRepo.save(new Ingredient("bread"));
-		MealIngredient bread = new MealIngredient(iBread, 2);
-		bread = mealIngredientRepo.save(bread);
 
 		Ingredient iEgg = ingredientRepo.save(new Ingredient("egg"));
-		MealIngredient egg = new MealIngredient(iEgg, 1);
-		egg = mealIngredientRepo.save(egg);
 
-		Meal meal1 = new Meal("Mac & Cheese", 2, butter, milk, macaroni, velveeta);
+		MealIngredient butter1 = mealIngredientRepo.save(new MealIngredient(iButter, 1));
+		MealIngredient milk1 = mealIngredientRepo.save(new MealIngredient(iMilk, 1));
+		MealIngredient macaroni1 = mealIngredientRepo.save(new MealIngredient(iMacaroni, 1));
+		MealIngredient velveeta1 = mealIngredientRepo.save(new MealIngredient(iVelveeta, 1));
+		Meal meal1 = new Meal("Mac & Cheese", 2, butter1, milk1, macaroni1, velveeta1);
 		meal1 = mealRepo.save(meal1);
-		Meal meal2 = new Meal("Grilled Cheese", 1, butter, bread, velveeta);
+		butter1 = mealIngredientRepo.save(butter1);
+		milk1 = mealIngredientRepo.save(milk1);
+		macaroni1 = mealIngredientRepo.save(macaroni1);
+		velveeta1 = mealIngredientRepo.save(velveeta1);
+		
+		MealIngredient butter2 = mealIngredientRepo.save(new MealIngredient(iButter, 1));
+		MealIngredient velveeta2 = mealIngredientRepo.save(new MealIngredient(iVelveeta, 1));
+		MealIngredient bread2 = mealIngredientRepo.save(new MealIngredient(iBread, 2));
+		Meal meal2 = new Meal("Grilled Cheese", 1, butter2, bread2, velveeta2);
 		meal2 = mealRepo.save(meal2);
-		Meal meal3 = new Meal("Scrambled Eggs", 1, butter, egg, milk);
+		butter2 = mealIngredientRepo.save(butter2);
+		velveeta2 = mealIngredientRepo.save(velveeta2);
+		bread2 = mealIngredientRepo.save(bread2);
+		
+		MealIngredient butter3 = mealIngredientRepo.save(new MealIngredient(iButter, 1));
+		MealIngredient milk3 = mealIngredientRepo.save(new MealIngredient(iMilk, 1));
+		MealIngredient egg3 = mealIngredientRepo.save(new MealIngredient(iEgg, 1));
+		Meal meal3 = new Meal("Scrambled Eggs", 1, butter3, egg3, milk3);
 		meal3 = mealRepo.save(meal3);
-
+		butter3 = mealIngredientRepo.save(butter3);
+		milk3 = mealIngredientRepo.save(milk3);
+		egg3 = mealIngredientRepo.save(egg3);
 	}
 
 }
