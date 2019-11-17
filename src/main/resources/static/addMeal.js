@@ -69,10 +69,18 @@ document.querySelector(".submit").addEventListener("click", event => {
   sendMealToAPI(actionObject)
 });
 
-function sendMealToAPI(obj) {
-  const response = await fetch('http://localhost:8080/add-meal');
+async function sendMealToAPI(obj) {
+  const response = await fetch('http://localhost:8080/api/meals/add-meal', {
+    method: 'POST',
+    body: JSON.stringify(obj),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+
+  });
   const myJson = await response.json();
-  console.log(JSON.stringify(myJson))
+  console.log('Success', JSON.stringify(myJson));
+
 
 }
 
