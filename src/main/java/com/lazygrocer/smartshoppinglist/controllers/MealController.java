@@ -76,6 +76,11 @@ public class MealController {
 		return "redirect:/meals";
 	}
 	
+
+	@DeleteMapping("/delete-meal/{id}")
+	public String deleteMealById(@PathVariable long id) {
+		mealRepo.deleteById(id);
+    
 	@DeleteMapping("/delete-meal")
 	public String deleteMealByName(String mealName) {
 		if (mealRepo.findByName(mealName) != null) {
