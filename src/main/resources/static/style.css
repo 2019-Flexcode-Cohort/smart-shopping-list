@@ -35,7 +35,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--azureish-white);
+  color: var(--independence);
 }
 
 .nav-right {

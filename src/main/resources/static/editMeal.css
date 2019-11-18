@@ -1,0 +1,17 @@
+nav {
+  justify-content: center;
+}
+
+button {
+  /* height: 1.25rem;
+  width: 1.25rem; */
+  height: auto;
+  width: auto;
+  padding: 0.25rem;
+  margin: 4px;
+}
+
+/* .saveButton {
+  height: auto;
+  width: auto;
+} */
