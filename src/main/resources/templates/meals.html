@@ -27,7 +27,7 @@
       </div>
       <div th:each="meal: ${meals}">
         <div class="mealList">
-          <a th:href="@{/meal(id=${meal.id})}" th:text="${meal.name}"></a>
+          <a th:href="@{/edit-meal/{id}(id=${meal.id})}" th:text="${meal.name}"></a>
           <div class="mealHandles">
             <button type="button" name="minus">-</button>
             <p th:text="${meal.servingCount}"></p>

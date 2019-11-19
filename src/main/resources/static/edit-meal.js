@@ -46,11 +46,7 @@ function createAddItemButton() {
 }
 function createRemoveItemButton() {
     const removeButton = document.createElement('button');
-    removeButton.innerText = 'X';
+    removeButton.innerText = 'x';
     removeButton.classList.add('remove-ingredient-button');
     return removeButton;
 }
-
-
-
-

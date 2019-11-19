@@ -112,9 +112,9 @@ nav>button:hover, .nav-right>button:hover {
   padding-top: .5rem;
 }
 
-.header p:first-of-type {
+/* .header p:first-of-type {
   margin-left: 2rem;
-}
+} */
 
 .header p:last-of-type {
   display: flex;
@@ -165,7 +165,7 @@ nav>button:hover, .nav-right>button:hover {
 
 .mealHandles button:hover {
   transition: 0.5s;
-  transform: scale(1.5);
+  transform: scale(1.25);
 }
 
 /* .mealList>div {
