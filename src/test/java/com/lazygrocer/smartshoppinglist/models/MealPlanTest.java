@@ -74,6 +74,4 @@ public class MealPlanTest {
 		assertThat(specificMealCount, is(2));
 		assertThat(specificMealCount2, is(1));
 	}
-
 }
-
