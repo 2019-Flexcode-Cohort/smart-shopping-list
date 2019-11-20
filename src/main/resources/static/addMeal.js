@@ -1,12 +1,21 @@
+const addMealName = document.querySelector('.mealNameInput');
+// addMealNameInput(addMealName);
+//need to capture meal name input
+
 const appContainer = document.querySelector(".app");
 renderIngredientInput(appContainer);
+
 
 function renderIngredientInput(element) {
   element.appendChild(createIngredientInput());
 }
+// function addMealNameInput(){
+//   const mealName= document.querySelector('mealName');
+// }
 
 function createIngredientInput() {
   const ingredientInput = document.createElement("li");
+  ingredientInput.classList.add("ingredientInput");
   ingredientInput.appendChild(createNameBox());
   ingredientInput.appendChild(createNumberBox());
   const button = createAddItemButton();
@@ -51,6 +60,9 @@ function createRemoveItemButton() {
   return removeButton;
 }
 
+
+
+
 const actionObject = {
   "name": "AwesomeName",
   "servingCount": 1,
@@ -66,6 +78,9 @@ const actionObject = {
 
 document.querySelector(".submit").addEventListener("click", event => {
   event.preventDefault();
+  actionObject.name = addMealName.value;
+  // actionObject.mealIngredients.ingredient.name = 
+
   sendMealToAPI(actionObject)
 });
 
