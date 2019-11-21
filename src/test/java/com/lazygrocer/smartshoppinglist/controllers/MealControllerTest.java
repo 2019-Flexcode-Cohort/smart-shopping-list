@@ -1,6 +1,5 @@
 package com.lazygrocer.smartshoppinglist.controllers;
 
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -89,6 +88,18 @@ public class MealControllerTest {
 		when(mealRepo.save(newMeal)).thenReturn(newMeal);
 		
 	}
+	
+//	@Test
+//	public void shouldGetTotalOfMealsInModel() {
+//		Meal testMealOne = new Meal("test meal 1", 2);
+//		Meal testMealTwo = new Meal("test meal 2", 4);
+//		
+//		Collection<Meal> allMeals = Arrays.asList(testMealOne, testMealTwo);
+//		when(mealRepo.findAll()).thenReturn(allMeals);
+//		
+//		underTest.getTotalMealCount(model);
+//		verify(model).addAttribute("meals", allMeals);
+//	}
 	
 //	@Test
 //	public void shouldRemoveMealFromModelByName() {

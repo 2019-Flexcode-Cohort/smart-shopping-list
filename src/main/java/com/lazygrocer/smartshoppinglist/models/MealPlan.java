@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+
 @Service
 public class MealPlan {
 
 	private List<Meal> meals;
+	
+	
 
 	public void addMeal(Meal meal) {
 		if (meals == null) {
@@ -34,6 +37,17 @@ public class MealPlan {
 			if (meal.equals(mealToCount)) {
 				count++;
 			}
+		}
+		return count;
+	}
+
+	public int fetchTotalMealCount(List<Meal> meals) {
+//		int totalMealCount = IntStream.of(mealCounts).sum();
+//		return totalMealCount;
+		int count = 0;
+		for(Meal meal : meals) {
+			count = meal.getMealCount();
+			count += count;
 		}
 		return count;
 	}

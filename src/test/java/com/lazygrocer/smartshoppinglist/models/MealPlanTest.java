@@ -74,4 +74,35 @@ public class MealPlanTest {
 		assertThat(specificMealCount, is(2));
 		assertThat(specificMealCount2, is(1));
 	}
+	
+//	@Test
+//	public void canAddMealCounts() {
+//		MealPlan underTest = new MealPlan();
+//		Meal testMeal = new Meal("testMeal", 1);
+//		Meal testMeal2 = new Meal("testMeal2", 3);
+//		underTest.addMeal(testMeal);
+//		underTest.addMeal(testMeal);
+//		underTest.addMeal(testMeal2);
+//		int specificMealCount = testMeal.getMealCount();
+//		int specificMealCount2 = testMeal2.getMealCount();
+//
+//		
+//		int[] mealCounts; 
+//		mealCounts = new int[] {specificMealCount, specificMealCount2};
+//
+//		int totalMealsCount = underTest.fetchTotalMealCount(mealCounts);
+//		
+//		assertThat(totalMealsCount, is(4));
+//	}
+	
+//	@Test
+//	public void canAddAllMealCounts() {
+//		MealPlan underTest = new MealPlan();
+//		Meal testMeal = new Meal("testMeal", 1);
+//		Meal testMeal2 = new Meal("testMeal2", 3);
+//		underTest.addMeal(testMeal);
+//		underTest.addMeal(testMeal2);
+//		
+//		int totalMealCount = underTest.fetchTotalMealCount(testMeal, testMeal2);
+//	}
 }
