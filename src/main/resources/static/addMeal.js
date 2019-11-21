@@ -39,7 +39,7 @@ function createNameBox() {
   const nameBox = document.createElement("input");
   nameBox.setAttribute("type", "text");
   nameBox.setAttribute("placeholder", "Ingredient Name");
-  nameBox.classList.add(".ingredientName");
+  nameBox.classList.add("ingredientName");
   return nameBox;
 }
 function createNumberBox() {
@@ -63,10 +63,17 @@ function createRemoveItemButton() {
 }
 function readIngredientInput() {
   const mealIngredients = []
-  //const mealIngredient= {}
-  const mealIngInput = document.querySelectorAll("ingredientInput");
-  for (let i = 0; i < ingredientInput.length; i++) {
-    mealIngredients.ingredientInput[i].querySelector("ingredientName");
+  const mealIngredient=  {
+    "ingredient": {
+      "name": "SampleIngredient"
+    },
+    "quantity": 23
+}
+  const mealIngInputs = document.querySelectorAll(".ingredientInput");
+  for (let i = 0; i < mealIngInputs.length; i++) {
+    mealIngredient.ingredient.name= mealIngInputs[i].querySelector(".ingredientName").value;
+    mealIngredient.quantity=mealIngInputs[i].querySelector(".ingredientQty").value;
+    mealIngredients.push(mealIngredient);
 
   }
   return mealIngredients;
@@ -74,7 +81,7 @@ function readIngredientInput() {
 }
 
 
-const actionObject = {
+const mealToAdd = {
   "name": "AwesomeName",
   "servingCount": 1,
   "mealIngredients": [
@@ -89,12 +96,11 @@ const actionObject = {
 
 document.querySelector(".submit").addEventListener("click", event => {
   event.preventDefault();
-  actionObject.name = addMealName.value;
-  // actionObject.mealIngredients.ingredient.name = 
-  actionObject.mealIngredients.ingredient.name = readIngredientInput();
-  //  mealToadd.mealIngredients = readIngredientInput();
+  mealToAdd.name = addMealName.value;
+  
+  mealToAdd.mealIngredients = readIngredientInput();
 
-  sendMealToAPI(actionObject)
+  sendMealToAPI(mealToAdd)
 });
 
 async function sendMealToAPI(obj) {
