@@ -39,10 +39,12 @@ function createNameBox() {
   const nameBox = document.createElement("input");
   nameBox.setAttribute("type", "text");
   nameBox.setAttribute("placeholder", "Ingredient Name");
+  nameBox.classList.add(".ingredientName");
   return nameBox;
 }
 function createNumberBox() {
   const numberBox = document.createElement("input");
+  numberBox.classList.add("ingredientQty");
   numberBox.setAttribute("type", "number");
   numberBox.setAttribute("placeholder", "Qty");
   return numberBox;
@@ -59,8 +61,17 @@ function createRemoveItemButton() {
   removeButton.classList.add('remove-ingredient-button');
   return removeButton;
 }
+function readIngredientInput() {
+  const mealIngredients = []
+  //const mealIngredient= {}
+  const mealIngInput = document.querySelectorAll("ingredientInput");
+  for (let i = 0; i < ingredientInput.length; i++) {
+    mealIngredients.ingredientInput[i].querySelector("ingredientName");
 
+  }
+  return mealIngredients;
 
+}
 
 
 const actionObject = {
@@ -80,6 +91,8 @@ document.querySelector(".submit").addEventListener("click", event => {
   event.preventDefault();
   actionObject.name = addMealName.value;
   // actionObject.mealIngredients.ingredient.name = 
+  actionObject.mealIngredients.ingredient.name = readIngredientInput();
+  //  mealToadd.mealIngredients = readIngredientInput();
 
   sendMealToAPI(actionObject)
 });
