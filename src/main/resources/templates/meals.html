@@ -11,11 +11,10 @@
 
 <body>
   <nav class="nav">
-    <button>NEW MEAL</button>
+    <button><a href="/add-meal">NEW MEAL</a></button>
     <!--Modal goes here-->
     <!-- <h2>COOKBOOK</h2> -->
     <div class="nav-right">
-      <div class="totalMealCount"># of total<br />servings</div>
       <button class="shoppingListButton">SHOPPING<br />LIST</button>
     </div>
   </nav>
@@ -27,10 +26,10 @@
       </div>
       <div th:each="meal: ${meals}">
         <div class="mealList">
-          <a th:href="@{/meal(id=${meal.id})}" th:text="${meal.name}"></a>
+          <a th:href="@{/edit-meal/{id}(id=${meal.id})}" th:text="${meal.name}"></a>
           <div class="mealHandles">
             <button type="button" name="minus">-</button>
-            <p th:text="${meal.servingCount}"></p>
+            <p th:text="${meal.mealCount}"></p>
             <button type="button" name="plus">+</button>
           </div>
         </div>

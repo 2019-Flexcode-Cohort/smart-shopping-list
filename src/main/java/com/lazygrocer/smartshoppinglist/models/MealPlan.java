@@ -2,12 +2,16 @@ package com.lazygrocer.smartshoppinglist.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import org.springframework.stereotype.Service;
+
 @Service
 public class MealPlan {
 
 	private List<Meal> meals;
+
+
 
 	public void addMeal(Meal meal) {
 		if (meals == null) {
@@ -37,5 +41,16 @@ public class MealPlan {
 		}
 		return count;
 	}
+
+	// public int fetchTotalMealCount(int[] mealCounts) {
+	// 	int totalMealCount = IntStream.of(mealCounts).sum();
+	// 	return totalMealCount;
+	// 	int count = 0;
+	// 	for(Meal meal : meals) {
+	// 		count = meal.getMealCount();
+	// 		count += count;
+	// 	}
+	// 	return count;
+	// }
 
 }
