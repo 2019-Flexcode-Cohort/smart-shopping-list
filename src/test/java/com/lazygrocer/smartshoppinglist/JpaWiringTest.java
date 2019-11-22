@@ -24,13 +24,13 @@ import com.lazygrocer.smartshoppinglist.repositories.MealRepository;
 public class JpaWiringTest {
 
 	@Resource
-	 private MealIngredientRepository mealIngredientRepo;
+	private MealIngredientRepository mealIngredientRepo;
 	@Resource
 	private IngredientRepository ingredientRepo;
 	@Resource
 	private MealRepository mealRepo;
 	@Resource
-	TestEntityManager entityManager;
+	private TestEntityManager entityManager;
 	
 	
 	@Test

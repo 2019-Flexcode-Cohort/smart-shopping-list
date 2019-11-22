@@ -14,6 +14,7 @@ public class Meal {
 
 	private String name;
 	private int servingCount;
+
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -21,7 +22,7 @@ public class Meal {
 	@OneToMany(mappedBy = "meal")
 	private List<MealIngredient> mealIngredients;
 
-	public Meal(String name, int servingCount, MealIngredient... mealIngredients) {
+		public Meal(String name, int servingCount, MealIngredient... mealIngredients) {
 		this.name = name;
 		this.servingCount = servingCount;
 		this.mealIngredients = new ArrayList<>(Arrays.asList(mealIngredients));
@@ -29,11 +30,6 @@ public class Meal {
 			mealIngredient.addMeal(this);
 		});
 
-	}
-
-	public Meal(String name, int servingCount) {
-		this.name = name;
-		this.servingCount = servingCount;
 	}
 
 	protected Meal() {
