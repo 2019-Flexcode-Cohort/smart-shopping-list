@@ -9,13 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lazygrocer.smartshoppinglist.MealNotFoundException;
 import com.lazygrocer.smartshoppinglist.models.Meal;
-import com.lazygrocer.smartshoppinglist.models.MealIngredient;
 import com.lazygrocer.smartshoppinglist.models.MealPlan;
 import com.lazygrocer.smartshoppinglist.repositories.MealIngredientRepository;
 import com.lazygrocer.smartshoppinglist.repositories.MealRepository;
@@ -50,10 +47,16 @@ public class MealController {
 
 	}
 
-	@GetMapping("/add-meal")
+	@RequestMapping("/add-meal")
 	public String addMeal(Model model) {
 		return "AddMeal";
 	}
+
+//	@GetMapping("/total-meals-count")
+//	public Strind findTotalMealCount(Model model) {
+//
+//	}
+
 
 	// @PostMapping("/add-meal")
 	// public String addMeal(@RequestParam String mealName, @RequestParam int
@@ -84,6 +87,7 @@ public class MealController {
 		}
 		return "redirect:/meals";
 	}
+
 
 	// @RequestMapping("/find-meal")
 	// public String findMeal(String mealName, Model model) {

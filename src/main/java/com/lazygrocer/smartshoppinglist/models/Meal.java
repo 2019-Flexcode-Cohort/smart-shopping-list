@@ -13,7 +13,8 @@ import javax.persistence.OneToMany;
 public class Meal {
 
 	private String name;
-	private int servingCount;
+	private int mealCount;
+
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -21,19 +22,14 @@ public class Meal {
 	@OneToMany(mappedBy = "meal")
 	private List<MealIngredient> mealIngredients;
 
-	public Meal(String name, int servingCount, MealIngredient... mealIngredients) {
+	public Meal(String name, int mealCount, MealIngredient... mealIngredients) {
 		this.name = name;
-		this.servingCount = servingCount;
+		this.mealCount = mealCount;
 		this.mealIngredients = new ArrayList<>(Arrays.asList(mealIngredients));
 		this.mealIngredients.stream().forEach((mealIngredient) -> {
 			mealIngredient.addMeal(this);
 		});
 
-	}
-
-	public Meal(String name, int servingCount) {
-		this.name = name;
-		this.servingCount = servingCount;
 	}
 
 	protected Meal() {
@@ -43,8 +39,8 @@ public class Meal {
 		return name;
 	}
 
-	public int getServingCount() {
-		return servingCount;
+	public int getMealCount() {
+		return mealCount;
 	}
 
 	public List<MealIngredient> getMealIngredients() {
@@ -65,7 +61,7 @@ public class Meal {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + servingCount;
+		result = prime * result + mealCount;
 		return result;
 	}
 
@@ -88,7 +84,7 @@ public class Meal {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (servingCount != other.servingCount)
+		if (mealCount != other.mealCount)
 			return false;
 		return true;
 	}

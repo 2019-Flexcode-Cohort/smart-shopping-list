@@ -17,9 +17,9 @@ public class MealApiController {
 
 	@PostMapping("/add-meal")
 	public Meal addMeal(@RequestBody Meal meal) {
-		
+
 		return mealRepo.save(meal);
-		
+
 	}
 
 }
