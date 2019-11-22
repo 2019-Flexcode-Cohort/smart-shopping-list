@@ -81,7 +81,6 @@ public class MealPlanTest {
 //		Meal testMeal = new Meal("testMeal", 1);
 //		Meal testMeal2 = new Meal("testMeal2", 3);
 //		underTest.addMeal(testMeal);
-//		underTest.addMeal(testMeal);
 //		underTest.addMeal(testMeal2);
 //		int specificMealCount = testMeal.getMealCount();
 //		int specificMealCount2 = testMeal2.getMealCount();

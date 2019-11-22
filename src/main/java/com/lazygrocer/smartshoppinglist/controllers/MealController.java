@@ -47,7 +47,7 @@ public class MealController {
 
 	}
 
-	@GetMapping("/add-meal")
+	@RequestMapping("/add-meal")
 	public String addMeal(Model model) {
 		return "AddMeal";
 	}

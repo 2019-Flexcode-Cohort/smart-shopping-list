@@ -11,12 +11,10 @@
 
 <body>
   <nav class="nav">
-    <button>NEW MEAL</button>
+    <button><a href="/add-meal">NEW MEAL</a></button>
     <!--Modal goes here-->
     <!-- <h2>COOKBOOK</h2> -->
     <div class="nav-right">
-      <div class="totalMealCount" th:each="mealPlan : ${meals}">
-        <span th:text="${mealPlan.mealCount}"></span># of total<br />servings</div>
       <button class="shoppingListButton">SHOPPING<br />LIST</button>
     </div>
   </nav>
