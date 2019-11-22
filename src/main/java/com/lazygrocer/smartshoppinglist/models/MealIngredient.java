@@ -50,34 +50,26 @@ public class MealIngredient {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
-		result = prime * result + ((ingredient == null) ? 0 : ingredient.hashCode());
-		result = prime * result + quantity;
-		return result;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof MealIngredient)) return false;
+
+		MealIngredient that = (MealIngredient) o;
+
+		if (getQuantity() != that.getQuantity()) return false;
+		if (getIngredient() != null ? !getIngredient().equals(that.getIngredient()) : that.getIngredient() != null)
+			return false;
+		if (getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
+		return getMeal() != null ? getMeal().equals(that.getMeal()) : that.getMeal() == null;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		MealIngredient other = (MealIngredient) obj;
-		if (id != other.id)
-			return false;
-		if (ingredient == null) {
-			if (other.ingredient != null)
-				return false;
-		} else if (!ingredient.equals(other.ingredient))
-			return false;
-		if (quantity != other.quantity)
-			return false;
-		return true;
+	public int hashCode() {
+		int result = getIngredient() != null ? getIngredient().hashCode() : 0;
+		result = 31 * result + getQuantity();
+		result = 31 * result + (getId() != null ? getId().hashCode() : 0);
+		result = 31 * result + (getMeal() != null ? getMeal().hashCode() : 0);
+		return result;
 	}
 
 	@Override
