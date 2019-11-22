@@ -45,6 +45,10 @@ public class MealIngredient {
 		return meal;
 	}
 
+	public void updateIngredient(Ingredient ingredient){
+		this.ingredient=ingredient;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

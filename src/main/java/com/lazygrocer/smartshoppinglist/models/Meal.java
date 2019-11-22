@@ -93,6 +93,16 @@ public class Meal {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Meal{" +
+				"name='" + name + '\'' +
+				", servingCount=" + servingCount +
+				", id=" + id +
+				", mealIngredients=" + mealIngredients +
+				'}';
+	}
+
 	public void changeName(String newName) {
 		this.name = newName;
 	}
