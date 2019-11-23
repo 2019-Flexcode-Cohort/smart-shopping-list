@@ -54,7 +54,7 @@ button:hover {
   cursor: pointer;
 }
 
-nav>button, .nav-right>button {
+nav>a button, .nav-right>button {
   margin: .25rem;
   height: 3rem;
   width: 5rem;
@@ -62,7 +62,7 @@ nav>button, .nav-right>button {
   color: var(--white-smoke);
 }
 
-nav>button:hover, .nav-right>button:hover {
+nav>a button:hover, .nav-right>button:hover {
   transition: 0.5s;
   background-color: var(--white-smoke);
   color: var(--independence);
@@ -93,9 +93,10 @@ nav>button:hover, .nav-right>button:hover {
   opacity: 1;
   transition: 0s;
 } */
-.totalMealCount {
+
+/* .totalMealCount {
   margin-right: 1.5rem;
-}
+} */
 
 .container {
   margin: 0 1rem;
@@ -115,7 +116,6 @@ nav>button:hover, .nav-right>button:hover {
 /* .header p:first-of-type {
   margin-left: 2rem;
 } */
-
 .header p:last-of-type {
   display: flex;
   justify-content: flex-end;

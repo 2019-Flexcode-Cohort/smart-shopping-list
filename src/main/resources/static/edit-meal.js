@@ -7,7 +7,7 @@ function addNewIngredient(element) {
 
 
 function createNewIngredientInput() {
-    const ingredientInput = document.createElement("li");
+    const ingredientInput = document.createElement("div");
     ingredientInput.appendChild(createNameBox());
     ingredientInput.appendChild(createNumberBox());
     const button = createAddItemButton();
@@ -50,3 +50,7 @@ function createRemoveItemButton() {
     removeButton.classList.add('remove-ingredient-button');
     return removeButton;
 }
+
+function saveMeal() {
+  alert("Your meal has been saved!");
+};

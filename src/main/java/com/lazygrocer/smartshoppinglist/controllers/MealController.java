@@ -7,9 +7,9 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lazygrocer.smartshoppinglist.MealNotFoundException;
 import com.lazygrocer.smartshoppinglist.models.Meal;
@@ -28,6 +28,15 @@ public class MealController {
 	@Resource
 	private MealPlan mealPlan;
 
+	@RequestMapping("/meals")
+	public String findAllMeals(Model model) {
+		model.addAttribute("meals", mealRepo.findAll());
+		model.addAttribute("mealPlan", mealPlan);
+		return ("meals");
+
+	}
+	
+	
 	@RequestMapping("/edit-meal/{id}")
 	public String findOneMeal(@PathVariable long id, Model model) throws MealNotFoundException {
 		Optional<Meal> meal = mealRepo.findById(id);
@@ -39,14 +48,6 @@ public class MealController {
 		throw new MealNotFoundException();
 	}
 
-	@RequestMapping("/meals")
-	public String findAllMeals(Model model) {
-		model.addAttribute("meals", mealRepo.findAll());
-		model.addAttribute("mealPlan", mealPlan);
-		return ("meals");
-
-	}
-
 	@RequestMapping("/add-meal")
 	public String addMeal(Model model) {
 		return "AddMeal";
@@ -56,7 +57,6 @@ public class MealController {
 //	public Strind findTotalMealCount(Model model) {
 //
 //	}
-
 
 	// @PostMapping("/add-meal")
 	// public String addMeal(@RequestParam String mealName, @RequestParam int
@@ -87,7 +87,6 @@ public class MealController {
 		}
 		return "redirect:/meals";
 	}
-
 
 	// @RequestMapping("/find-meal")
 	// public String findMeal(String mealName, Model model) {
