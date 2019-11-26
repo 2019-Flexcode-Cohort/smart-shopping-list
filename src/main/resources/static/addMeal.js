@@ -42,6 +42,7 @@ function createNameBox() {
   nameBox.classList.add("ingredientName");
   return nameBox;
 }
+
 function createNumberBox() {
   const numberBox = document.createElement("input");
   numberBox.classList.add("ingredientQty");
@@ -49,30 +50,34 @@ function createNumberBox() {
   numberBox.setAttribute("placeholder", "Qty");
   return numberBox;
 }
+
 function createAddItemButton() {
   const button = document.createElement('button');
   button.innerText = '+';
   button.classList.add('add-ingredient-button');
   return button;
 }
+
 function createRemoveItemButton() {
   const removeButton = document.createElement('button');
   removeButton.innerText = 'x';
   removeButton.classList.add('remove-ingredient-button');
   return removeButton;
 }
+
 function readIngredientInput() {
   const mealIngredients = []
-  const mealIngredient=  {
-    "ingredient": {
-      "name": "SampleIngredient"
-    },
-    "quantity": 23
-}
+
   const mealIngInputs = document.querySelectorAll(".ingredientInput");
   for (let i = 0; i < mealIngInputs.length; i++) {
-    mealIngredient.ingredient.name= mealIngInputs[i].querySelector(".ingredientName").value;
-    mealIngredient.quantity=mealIngInputs[i].querySelector(".ingredientQty").value;
+    let mealIngredient = {
+      "ingredient": {
+        "name": "SampleIngredient"
+      },
+      "quantity": 23
+    }
+    mealIngredient.ingredient.name = mealIngInputs[i].querySelector(".ingredientName").value;
+    mealIngredient.quantity = mealIngInputs[i].querySelector(".ingredientQty").value;
     mealIngredients.push(mealIngredient);
 
   }
@@ -84,24 +89,27 @@ function readIngredientInput() {
 const mealToAdd = {
   "name": "AwesomeName",
   "servingCount": 1,
-  "mealIngredients": [
-    {
-      "ingredient": {
-        "name": "TestIngredient"
-      },
-      "quantity": 1
-    }
-  ]
+  "mealIngredients": [{
+    "ingredient": {
+      "name": "TestIngredient"
+    },
+    "quantity": 1
+  }]
 }
 
 document.querySelector(".submit").addEventListener("click", event => {
   event.preventDefault();
   mealToAdd.name = addMealName.value;
-  
+
   mealToAdd.mealIngredients = readIngredientInput();
 
-  sendMealToAPI(mealToAdd)
+  sendMealToAPI(mealToAdd);
+
 });
+
+function saveMeal() {
+  alert("Your meal has been saved!");
+};
 
 async function sendMealToAPI(obj) {
   const response = await fetch('http://localhost:8080/api/meals/add-meal', {
@@ -116,8 +124,6 @@ async function sendMealToAPI(obj) {
   console.log('Success', JSON.stringify(myJson));
 
 
+
 }
-
-
-
 

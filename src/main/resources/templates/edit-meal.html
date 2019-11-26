@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" th:href="@{/style.css}">
     <link rel="stylesheet" th:href="@{/editMeal.css}">
-    <title>Document</title>
+    <title th:text="|Edit ${meal.name}|">Edit</title>
 </head>
 
 <body>
@@ -21,18 +21,18 @@
         <div class="container">
             <h3>Meal Name</h3>
             <input type="text" th:value="${meal.name}" name='name' />
-            <ul class="addNewIng mealHandles">
+            <dv class="addNewIng mealHandles">
                 <h3>Ingredients</h3>
-                <li th:each="mealIngredient:${meal.mealIngredients}">
+                <div th:each="mealIngredient:${meal.mealIngredients}">
                     <input type="text" th:value=${mealIngredient.ingredient.name} />
-                    <input type="number" th:value=${mealIngredient.quantity} name="Qty"></input> <button>x</button>
-                </li>
-            </ul>
+                    <input type="number" th:value=${mealIngredient.quantity} name="Qty"></input> <button
+                        class="remove-ingredient-button">x</button>
+                </div>
+            </dv>
 
             <div class="saveMeal">
-                <button class="submit" th:formaction="@{/edit-meal}"> Save Meal</button>
-                <a href="/meals">Return To Main</a>
-
+                <button onclick="saveMeal()" class="saveButton"> Save Meal</button>
+                <a href="/meals">Cancel</a>
             </div>
 
         </div>

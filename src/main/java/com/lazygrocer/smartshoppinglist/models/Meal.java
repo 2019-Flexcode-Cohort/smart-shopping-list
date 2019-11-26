@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 public class Meal {
 
 	private String name;
-	private int mealCount;
+	private int servingCount;
 
 	@Id
 	@GeneratedValue
@@ -22,14 +22,18 @@ public class Meal {
 	@OneToMany(mappedBy = "meal")
 	private List<MealIngredient> mealIngredients;
 
-	public Meal(String name, int mealCount, MealIngredient... mealIngredients) {
+		public Meal(String name, int servingCount, MealIngredient... mealIngredients) {
 		this.name = name;
-		this.mealCount = mealCount;
+		this.servingCount = servingCount;
 		this.mealIngredients = new ArrayList<>(Arrays.asList(mealIngredients));
+			updateMealIngredientReferences();
+
+		}
+
+	public void updateMealIngredientReferences() {
 		this.mealIngredients.stream().forEach((mealIngredient) -> {
 			mealIngredient.addMeal(this);
 		});
-
 	}
 
 	protected Meal() {
@@ -39,8 +43,8 @@ public class Meal {
 		return name;
 	}
 
-	public int getMealCount() {
-		return mealCount;
+	public int getServingCount() {
+		return servingCount;
 	}
 
 	public List<MealIngredient> getMealIngredients() {
@@ -61,7 +65,7 @@ public class Meal {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + mealCount;
+		result = prime * result + servingCount;
 		return result;
 	}
 
@@ -84,9 +88,19 @@ public class Meal {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (mealCount != other.mealCount)
+		if (servingCount != other.servingCount)
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Meal{" +
+				"name='" + name + '\'' +
+				", servingCount=" + servingCount +
+				", id=" + id +
+				", mealIngredients=" + mealIngredients +
+				'}';
 	}
 
 	public void changeName(String newName) {

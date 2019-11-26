@@ -39,9 +39,12 @@ button {
   margin-top: 1rem;
 }
 
-.container ul {
-  list-style-type: none;
-  display: block;
+.mealHandles {
+  flex-direction: column;
+}
+
+.mealHandles > div {
+  display: flex;
 }
 
 .container input {

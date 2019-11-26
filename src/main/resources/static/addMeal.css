@@ -1,0 +1,48 @@
+body {
+margin: 0;
+padding: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: F4F4F4;
+font-family: arial, sans-serif;
+font-weight: bold;
+}
+
+.mealNameInput {
+  border: 2px, #C0DFA1;
+  border-color: #27ae60;
+}
+
+a {
+  color: #50A561;
+  font-weight: bold;
+  
+}
+.cancel{
+  background-color: #F4F4F4;
+  font-color: #4B4B4B;
+  border: 2px, #ff0800;
+  border-color: #27ae60;
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.submit {
+  color: #005711;
+  background-color: #C0DFA1;
+  border: 2px, #27ae60;
+  border-color: #27ae60;
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}

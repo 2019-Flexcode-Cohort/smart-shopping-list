@@ -7,8 +7,12 @@ function addNewIngredient(element) {
 
 
 function createNewIngredientInput() {
+<<<<<<< HEAD
     const ingredientInput = document.createElement("li");
     ingredientInput.classList.add("ingredientInput");
+=======
+    const ingredientInput = document.createElement("div");
+>>>>>>> dev
     ingredientInput.appendChild(createNameBox());
     ingredientInput.appendChild(createNumberBox());
     const button = createAddItemButton();
