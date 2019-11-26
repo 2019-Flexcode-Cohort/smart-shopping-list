@@ -22,7 +22,7 @@ a {
 .cancel{
   background-color: #F4F4F4;
   font-color: #4B4B4B;
-  border: 2px, #ff0800;
+  border: 5px, #ff0800;
   border-color: #27ae60;
   border-radius: 4px;
   font-weight: bold;
@@ -31,6 +31,7 @@ a {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  
 }
 
 .submit {
@@ -45,4 +46,8 @@ a {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+.app {
+padding: 30px;
 }
