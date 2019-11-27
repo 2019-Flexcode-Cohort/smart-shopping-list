@@ -11,30 +11,28 @@ public class MealPlan {
 
 	private List<Meal> meals;
 
-
-
 	public void addMeal(Meal meal) {
-		if (meals == null) {
-			meals = new ArrayList<>();
-		}
-		meals.add(meal);
+		getMeals().add(meal);
 	}
 
 	public int mealCount() {
-		return meals.size();
+		return getMeals().size();
 	}
 
 	public void removeMeal(Meal meal) {
-		meals.remove(meal);
+		getMeals().remove(meal);
 	}
 
 	public List<Meal> getMeals() {
+		if (meals == null) {
+			meals = new ArrayList<>();
+		}
 		return meals;
 	}
 
-	public int fetchMealCount(Meal mealToCount) {
+	public Integer fetchMealCount(Meal mealToCount) {
 		int count = 0;
-		for (Meal meal : meals) {
+		for (Meal meal : getMeals()) {
 			if (meal.equals(mealToCount)) {
 				count++;
 			}
@@ -46,7 +44,7 @@ public class MealPlan {
 	// 	int totalMealCount = IntStream.of(mealCounts).sum();
 	// 	return totalMealCount;
 	// 	int count = 0;
-	// 	for(Meal meal : meals) {
+	// 	for(Meal meal : getMeals()) {
 	// 		count = meal.getMealCount();
 	// 		count += count;
 	// 	}
