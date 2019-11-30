@@ -31,12 +31,14 @@ function createNewIngredientInput() {
 function createNameBox() {
     const nameBox = document.createElement("input");
     nameBox.setAttribute("type", "text");
+    nameBox.setAttribute("placeholder", "Ingredient Name");
     nameBox.classList.add("ingredientName");
     return nameBox;
 }
 function createNumberBox() {
     const numberBox = document.createElement("input");
     numberBox.classList.add("ingredientQty");
+    numberBox.setAttribute("placeholder", "Qty");
     numberBox.setAttribute("type", "number");
     return numberBox;
 }
