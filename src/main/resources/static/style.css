@@ -2,7 +2,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: sans-serif
+  font-family: sans-serif;
+  text-decoration: none;
 }
 
 html {
@@ -67,6 +68,13 @@ nav>a button:hover, .nav-right>button:hover {
   background-color: var(--white-smoke);
   color: var(--independence);
 }
+
+button:hover{
+	 transition: 0.5s;
+  background-color: var(--white-smoke);
+  color: var(--independence);
+}
+
 .hidden{
   display: none;
 }
