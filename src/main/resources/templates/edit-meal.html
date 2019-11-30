@@ -20,8 +20,9 @@
     <main>
         <div class="container">
             <h3>Meal Name</h3>
-            <input type="text" th:value="${meal.name}" name='name' />
-            <dv class="addNewIng mealHandles">
+            <input type="text" th:value="${meal.name}" name='name' class='meal-name-input'/>
+            <input type="hidden" th:value="${meal.id}" class="meal-id-input"/>
+            <dv class="edit-ingredients mealHandles">
                 <h3>Ingredients</h3>
                 <div th:each="mealIngredient:${meal.mealIngredients}">
                     <input type="text" th:value=${mealIngredient.ingredient.name} />
