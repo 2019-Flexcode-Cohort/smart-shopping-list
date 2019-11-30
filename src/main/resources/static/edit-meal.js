@@ -4,7 +4,6 @@ addNewIngredient(editIngredientList);
 function addNewIngredient(element) {
     element.appendChild(createNewIngredientInput());
 }
-
 function createNewIngredientInput() {
     const ingredientInput = document.createElement("li");
     ingredientInput.classList.add("ingredientInput");
@@ -26,6 +25,16 @@ function createNewIngredientInput() {
     })
     return ingredientInput;
 }
+function wireDeleteButton() {
+    let deleteButtons = document.querySelectorAll(".remove-ingredient-button");
+    for (let i = 0; i < deleteButtons.length; i++) {
+        deleteButtons[i].addEventListener('click', event => {
+            console.log(event.target);
+            event.target.parentNode.remove();
+        })
+    }
+}
+wireDeleteButton();
 
 function createNameBox() {
     const nameBox = document.createElement("input");
@@ -96,6 +105,7 @@ document.querySelector(".submit").addEventListener("click", event => {
     mealToEdit.id = document.querySelector('.meal-id-input').value;
     mealToEdit.mealIngredients = readIngredientInput();
     sendMealToAPI(mealToEdit);
+    location.assign("http://localhost:8080");
 
 });
 

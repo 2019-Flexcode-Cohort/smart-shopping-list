@@ -26,36 +26,16 @@
 
         <ul class='app'>
             <p>Add Ingredient</p>
-
-
         </ul>
 
-        <!--    <div>
-            <label>Enter Ingredient</label>
-            <input type="text" name="mealIngredient" value="Ingredient">
-        </div>
 
-
-
-        <div>
-            <label>Enter Ingredient Quantity</label>
-            <input type="number" name="ingredientQuantity" value="qty">
-        </div>
-
-
-         <div class="addIngredients">
-          <div>
-
-                    <input type="text" name="mealIngredient" value="Add mealIngredient">
-                </form>
-            </div> -->
 
         <div>
             <button onclick="saveMeal()" class="submit" th:formaction="@{/add-meal}">SAVE MEAL</button>
             <button onclick="cancelMeal" class="cancel" th:formaction="@{/meals}"><a href="/meals"> CANCEL </a>
             </button>
         </div>
-        <!-- list the meal & ingredients for it -->
+
     </form>
 
 

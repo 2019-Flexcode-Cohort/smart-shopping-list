@@ -29,7 +29,16 @@ function createIngredientInput() {
   })
   return ingredientInput;
 }
-
+function wireDeleteButton() {
+  let deleteButtons = document.querySelectorAll(".remove-ingredient-button");
+  for (let i = 0; i < deleteButtons.length; i++) {
+    deleteButtons[i].addEventListener('click', event => {
+      console.log(event.target);
+      event.target.parentNode.remove();
+    })
+  }
+}
+wireDeleteButton();
 function createNameBox() {
   const nameBox = document.createElement("input");
   nameBox.setAttribute("type", "text");
@@ -100,6 +109,7 @@ document.querySelector(".submit").addEventListener("click", event => {
   mealToAdd.mealIngredients = readIngredientInput();
 
   sendMealToAPI(mealToAdd);
+  location.assign("http://localhost:8080");
 
 });
 

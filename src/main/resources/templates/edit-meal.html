@@ -20,23 +20,21 @@
     <main>
         <div class="container">
             <h3>Meal Name</h3>
-            <input type="text" th:value="${meal.name}" name='name' class='meal-name-input'/>
-            <input type="hidden" th:value="${meal.id}" class="meal-id-input"/>
+            <input type="text" th:value="${meal.name}" name='name' class='meal-name-input' />
+            <input type="hidden" th:value="${meal.id}" class="meal-id-input" />
             <dv class="edit-ingredients mealHandles">
                 <h3>Ingredients</h3>
                 <div class='ingredientInput' th:each="mealIngredient:${meal.mealIngredients}">
                     <input class="ingredientName" type="text" th:value=${mealIngredient.ingredient.name} />
-                    <input class="ingredientQty" type="number" th:value=${mealIngredient.quantity} name="Qty"></input> 
+                    <input class="ingredientQty" type="number" th:value=${mealIngredient.quantity} name="Qty"></input>
                     <button class="remove-ingredient-button">x</button>
                 </div>
-            </div>
-            <!-- mealIngredient.ingredient.name = mealIngInputs[i].querySelector(".ingredientName").value;
-            mealIngredient.quantity = mealIngInputs[i].querySelector(".ingredientQty").value;
-            mealIngredients.push(mealIngredient); -->
-            <div class="saveMeal">
-                <button class="submit"> Save Meal</button>
-                <a href="/meals">Cancel</a>
-            </div>
+        </div>
+
+        <div class="saveMeal">
+            <button class="submit"> Save Meal</button>
+            <a href="/meals">Cancel</a>
+        </div>
 
         </div>
     </main>
