@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{/addItem.css}">
+    <!-- <link rel="stylesheet" href="../static/style.css">-->
+    <title>Add Meal</title>
+</head>
+<STYLE>A {text-decoration: none;} </STYLE>
+<body>
+  
+    <form method="post">
+<h1> Create New Item </h1>
+        <div>
+            <label>Add Item Name</label>
+            <input class='itemNameInput' type="text" name="itemName" placeholder="Item Name">
+        </div>
+
+        <ul class='app'>
+            <p>Add Item</p>
+
+
+        </ul>
+
+        <!--    <div>
+            <label>Enter Ingredient</label>
+            <input type="text" name="mealIngredient" value="Ingredient">
+        </div>
+
+
+
+        <div>
+            <label>Enter Ingredient Quantity</label>
+            <input type="number" name="ingredientQuantity" value="qty">
+        </div>
+
+
+         <div class="addIngredients">
+          <div>
+
+                    <input type="text" name="mealIngredient" value="Add mealIngredient">
+                </form>
+            </div> -->
+
+        <div>
+            <button onclick="saveItem()" class="submit" th:formaction="@{/add-meal}">ADD ITEM</button>
+          <button onclick="cancelItem" class="cancel" th:formaction="@{/meals}"><a href="/meals"> CANCEL </a>
+            </button>
+        </div>
+        <!-- list the meal & ingredients for it -->
+    </form>
+
+
+
+    <script src="/addItem.js"> </script>
+</body>
+
+</html>

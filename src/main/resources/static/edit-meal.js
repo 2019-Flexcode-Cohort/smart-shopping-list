@@ -1,13 +1,12 @@
-const newIngContainer = document.querySelector(".addNewIng");
-addNewIngredient(newIngContainer);
+const editIngredientList = document.querySelector(".edit-ingredients");
+addNewIngredient(editIngredientList);
 
 function addNewIngredient(element) {
     element.appendChild(createNewIngredientInput());
 }
-
-
 function createNewIngredientInput() {
-    const ingredientInput = document.createElement("div");
+    const ingredientInput = document.createElement("li");
+    ingredientInput.classList.add("ingredientInput");
     ingredientInput.appendChild(createNameBox());
     ingredientInput.appendChild(createNumberBox());
     const button = createAddItemButton();
@@ -26,24 +25,40 @@ function createNewIngredientInput() {
     })
     return ingredientInput;
 }
+function wireDeleteButton() {
+    let deleteButtons = document.querySelectorAll(".remove-ingredient-button");
+    for (let i = 0; i < deleteButtons.length; i++) {
+        deleteButtons[i].addEventListener('click', event => {
+            console.log(event.target);
+            event.target.parentNode.remove();
+        })
+    }
+}
+wireDeleteButton();
 
 function createNameBox() {
     const nameBox = document.createElement("input");
     nameBox.setAttribute("type", "text");
+    nameBox.setAttribute("placeholder", "Ingredient Name");
+    nameBox.classList.add("ingredientName");
     return nameBox;
 }
+
 function createNumberBox() {
     const numberBox = document.createElement("input");
+    numberBox.classList.add("ingredientQty");
+    numberBox.setAttribute("placeholder", "Qty");
     numberBox.setAttribute("type", "number");
     return numberBox;
 }
+
 function createAddItemButton() {
     const button = document.createElement('button');
     button.innerText = '+';
     button.classList.add('add-ingredient-button');
     return button;
-
 }
+
 function createRemoveItemButton() {
     const removeButton = document.createElement('button');
     removeButton.innerText = 'x';
@@ -51,6 +66,62 @@ function createRemoveItemButton() {
     return removeButton;
 }
 
-function saveMeal() {
-  alert("Your meal has been saved!");
-};
+function readIngredientInput() {
+    const mealIngredients = []
+
+    const mealIngInputs = document.querySelectorAll(".ingredientInput");
+    for (let i = 0; i < mealIngInputs.length; i++) {
+        let mealIngredient = {
+            "ingredient": {
+                "name": "SampleIngredient"
+            },
+            "quantity": 23
+        }
+        if (mealIngInputs[i].querySelector(".ingredientName").value) {
+            mealIngredient.ingredient.name = mealIngInputs[i].querySelector(".ingredientName").value;
+            mealIngredient.quantity = mealIngInputs[i].querySelector(".ingredientQty").value;
+            mealIngredients.push(mealIngredient);
+        }
+    }
+    return mealIngredients;
+}
+
+
+const mealToEdit = {
+    "id": -1,
+    "name": "AwesomeName",
+    "servingCount": 1,
+    "mealIngredients": [{
+        "ingredient": {
+            "name": "TestIngredient"
+        },
+        "quantity": 1
+    }]
+}
+
+document.querySelector(".submit").addEventListener("click", event => {
+    event.preventDefault();
+    mealToEdit.name = document.querySelector('.meal-name-input').value;
+    mealToEdit.id = document.querySelector('.meal-id-input').value;
+    mealToEdit.mealIngredients = readIngredientInput();
+    sendMealToAPI(mealToEdit);
+    location.assign("http://localhost:8080");
+
+});
+
+// function saveMeal() {
+//     alert("Your meal has been saved!");
+// };
+
+async function sendMealToAPI(obj) {
+    const response = await fetch('http://localhost:8080/api/meals/edit-meal/' + obj.id, {
+        method: 'PUT',
+        body: JSON.stringify(obj),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    const myJson = await response.json();
+    console.log(JSON.stringify(obj))
+    console.log('Success', JSON.stringify(myJson));
+}
