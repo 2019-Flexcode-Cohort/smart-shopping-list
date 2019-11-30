@@ -2,6 +2,7 @@ package com.lazygrocer.smartshoppinglist.controllers;
 
 import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -49,6 +50,14 @@ public class MealApiControllerTest {
 		mockMvc.perform(post("/api/meals/add-meal")
 				   .contentType(MediaType.APPLICATION_JSON_UTF8)
 				   .content(testMealJson))
+			   .andExpect(status().isOk());
+		verify(mealRepo).save(testMeal);
+	}
+	@Test
+	public void	shouldEditMealWIthAPutRequest() throws Exception {
+		mockMvc.perform(put("/api/meals/edit-meal/1")
+				.contentType(MediaType.APPLICATION_JSON_UTF8)
+				.content(testMealJson))
 			   .andDo(print())
 			   .andExpect(status().isOk());
 		verify(mealRepo).save(testMeal);

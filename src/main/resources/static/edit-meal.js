@@ -103,12 +103,13 @@ document.querySelector(".submit").addEventListener("click", event => {
 
 async function sendMealToAPI(obj) {
     const response = await fetch('http://localhost:8080/api/meals/edit-meal/' + obj.id, {
-        method: 'POST',
+        method: 'PUT',
         body: JSON.stringify(obj),
         headers: {
             'Content-Type': 'application/json'
         }
     });
     const myJson = await response.json();
+    console.log(JSON.stringify(obj))
     console.log('Success', JSON.stringify(myJson));
 }
