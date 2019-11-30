@@ -9,5 +9,5 @@ public class SmartShoppingListApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SmartShoppingListApplication.class, args);
 	}
-
+	
 }

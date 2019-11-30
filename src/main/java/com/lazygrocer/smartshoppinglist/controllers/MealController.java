@@ -52,9 +52,14 @@ public class MealController {
 	public String addMeal(Model model) {
 		return "AddMeal";
 	}
+	
+	@RequestMapping("/shopping-list")
+	public String shoppingList(Model model) {
+		return "ShoppingList";
+	}
 
 //	@GetMapping("/total-meals-count")
-//	public Strind findTotalMealCount(Model model) {
+//	public String findTotalMealCount(Model model) {
 //
 //	}
 
