@@ -26,13 +26,13 @@ public class MealPlanController {
 	
 //	@ResponseBody
 	@GetMapping("/mealCount/{id}")
-	public Integer findOneMealCount(@PathVariable Long id) {
+	public String findOneMealCount(@PathVariable Long id) {
 		Optional<Meal> mealOptional = mealRepo.findById(id);
 		if(!mealOptional.isPresent()) {
 			throw new MealNotFoundException();
 		}
 		Meal meal = mealRepo.findById(id).get();
-		return mealPlan.fetchMealCount(meal);
+		return "{\"count\":\""+mealPlan.fetchMealCount(meal)+"\"}";
 	}
 	
 	@GetMapping("/increaseCount/{id}")
