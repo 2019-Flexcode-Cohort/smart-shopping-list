@@ -25,7 +25,7 @@
             <dv class="edit-ingredients mealHandles">
                 <h3>Ingredients</h3>
                 <div class='ingredientInput' th:each="mealIngredient:${meal.mealIngredients}">
-                    <input class="ingredientName" type="text" th:value=${mealIngredient.ingredient.name} />
+                    <input class="ingredientName" type="text" th:value="${mealIngredient.ingredient.name}" />
                     <input class="ingredientQty" type="number" th:value=${mealIngredient.quantity} name="Qty"></input>
                     <button class="remove-ingredient-button">x</button>
                 </div>
