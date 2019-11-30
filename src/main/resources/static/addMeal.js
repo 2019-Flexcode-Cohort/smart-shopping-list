@@ -1,6 +1,4 @@
 const addMealName = document.querySelector('.mealNameInput');
-// addMealNameInput(addMealName);
-//need to capture meal name input
 
 const appContainer = document.querySelector(".app");
 renderIngredientInput(appContainer);
@@ -9,9 +7,6 @@ renderIngredientInput(appContainer);
 function renderIngredientInput(element) {
   element.appendChild(createIngredientInput());
 }
-// function addMealNameInput(){
-//   const mealName= document.querySelector('mealName');
-// }
 
 function createIngredientInput() {
   const ingredientInput = document.createElement("li");
@@ -76,10 +71,11 @@ function readIngredientInput() {
       },
       "quantity": 23
     }
-    mealIngredient.ingredient.name = mealIngInputs[i].querySelector(".ingredientName").value;
-    mealIngredient.quantity = mealIngInputs[i].querySelector(".ingredientQty").value;
-    mealIngredients.push(mealIngredient);
-
+    if (mealIngInputs[i].querySelector(".ingredientName").value !== "") {
+      mealIngredient.ingredient.name = mealIngInputs[i].querySelector(".ingredientName").value;
+      mealIngredient.quantity = mealIngInputs[i].querySelector(".ingredientQty").value;
+      mealIngredients.push(mealIngredient);
+    }
   }
   return mealIngredients;
 
@@ -126,4 +122,3 @@ async function sendMealToAPI(obj) {
 
 
 }
-
