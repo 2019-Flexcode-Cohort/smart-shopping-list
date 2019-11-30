@@ -7,12 +7,8 @@ function addNewIngredient(element) {
 
 
 function createNewIngredientInput() {
-<<<<<<< HEAD
     const ingredientInput = document.createElement("li");
     ingredientInput.classList.add("ingredientInput");
-=======
-    const ingredientInput = document.createElement("div");
->>>>>>> dev
     ingredientInput.appendChild(createNameBox());
     ingredientInput.appendChild(createNumberBox());
     const button = createAddItemButton();
@@ -59,14 +55,15 @@ function createRemoveItemButton() {
 }
 function readIngredientInput() {
     const mealIngredients = []
-    const mealIngredient = {
-        "ingredient": {
-            "name": "SampleIngredient"
-        },
-        "quantity": 23
-    }
+
     const mealIngInputs = document.querySelectorAll(".ingredientInput");
     for (let i = 0; i < mealIngInputs.length; i++) {
+        let mealIngredient = {
+            "ingredient": {
+                "name": "SampleIngredient"
+            },
+            "quantity": 23
+        }
         mealIngredient.ingredient.name = mealIngInputs[i].querySelector(".ingredientName").value;
         mealIngredient.quantity = mealIngInputs[i].querySelector(".ingredientQty").value;
         mealIngredients.push(mealIngredient);
@@ -80,14 +77,12 @@ function readIngredientInput() {
 const mealToAdd = {
     "name": "AwesomeName",
     "servingCount": 1,
-    "mealIngredients": [
-        {
-            "ingredient": {
-                "name": "TestIngredient"
-            },
-            "quantity": 1
-        }
-    ]
+    "mealIngredients": [{
+        "ingredient": {
+            "name": "TestIngredient"
+        },
+        "quantity": 1
+    }]
 }
 
 document.querySelector(".submit").addEventListener("click", event => {
@@ -96,8 +91,13 @@ document.querySelector(".submit").addEventListener("click", event => {
 
     mealToAdd.mealIngredients = readIngredientInput();
 
-    sendMealToAPI(mealToAdd)
+    sendMealToAPI(mealToAdd);
+
 });
+
+function saveMeal() {
+    alert("Your meal has been saved!");
+};
 
 async function sendMealToAPI(obj) {
     const response = await fetch('http://localhost:8080/api/meals/add-meal', {
@@ -110,4 +110,8 @@ async function sendMealToAPI(obj) {
     });
     const myJson = await response.json();
     console.log('Success', JSON.stringify(myJson));
+
+
+
 }
+
