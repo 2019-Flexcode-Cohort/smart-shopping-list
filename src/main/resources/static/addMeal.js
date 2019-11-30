@@ -1,6 +1,4 @@
 const addMealName = document.querySelector('.mealNameInput');
-// addMealNameInput(addMealName);
-//need to capture meal name input
 
 const appContainer = document.querySelector(".app");
 renderIngredientInput(appContainer);
@@ -9,9 +7,6 @@ renderIngredientInput(appContainer);
 function renderIngredientInput(element) {
   element.appendChild(createIngredientInput());
 }
-// function addMealNameInput(){
-//   const mealName= document.querySelector('mealName');
-// }
 
 function createIngredientInput() {
   const ingredientInput = document.createElement("li");
@@ -34,7 +29,16 @@ function createIngredientInput() {
   })
   return ingredientInput;
 }
-
+function wireDeleteButton() {
+  let deleteButtons = document.querySelectorAll(".remove-ingredient-button");
+  for (let i = 0; i < deleteButtons.length; i++) {
+    deleteButtons[i].addEventListener('click', event => {
+      console.log(event.target);
+      event.target.parentNode.remove();
+    })
+  }
+}
+wireDeleteButton();
 function createNameBox() {
   const nameBox = document.createElement("input");
   nameBox.setAttribute("type", "text");
@@ -76,10 +80,11 @@ function readIngredientInput() {
       },
       "quantity": 23
     }
-    mealIngredient.ingredient.name = mealIngInputs[i].querySelector(".ingredientName").value;
-    mealIngredient.quantity = mealIngInputs[i].querySelector(".ingredientQty").value;
-    mealIngredients.push(mealIngredient);
-
+    if (mealIngInputs[i].querySelector(".ingredientName").value !== "") {
+      mealIngredient.ingredient.name = mealIngInputs[i].querySelector(".ingredientName").value;
+      mealIngredient.quantity = mealIngInputs[i].querySelector(".ingredientQty").value;
+      mealIngredients.push(mealIngredient);
+    }
   }
   return mealIngredients;
 
@@ -104,6 +109,7 @@ document.querySelector(".submit").addEventListener("click", event => {
   mealToAdd.mealIngredients = readIngredientInput();
 
   sendMealToAPI(mealToAdd);
+  location.assign("http://localhost:8080");
 
 });
 
@@ -126,4 +132,3 @@ async function sendMealToAPI(obj) {
 
 
 }
-
