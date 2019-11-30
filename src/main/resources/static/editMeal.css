@@ -9,9 +9,29 @@ body {
   height: 100vh;
 }
 
+h1 {
+	color: #E5FFCD;
+}
 nav {
   justify-content: center;
+  background-image: radial-gradient(#49CE81,#27ae60);
 }
+
+
+.cancelButton{
+	
+  background-color: #D4FFE6);
+  color: #005711;
+  border: 5px, #ff0800;
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  
+}
+
 
 button {
   height: auto;
@@ -50,7 +70,9 @@ button {
 .container input {
   margin: 2px;
   padding: 2px;
-  border: 3px solid var(--independence);
+  border-width: 3px;
+  border-style: linear-gradient;
+  
 }
 
 .saveMeal {
@@ -64,6 +86,15 @@ button {
 }
 
 .saveButton {
-  background-color: var(--green);
-  border: 2px solid var(--independence);
+	color: #E5FFCD;
+	border-radius: 4px;
+  background-image: linear-gradient(to right, #27ae60, #005711);
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: 3px, var(--green);
+  
 }

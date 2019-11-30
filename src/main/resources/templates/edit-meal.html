@@ -32,8 +32,10 @@
         </div>
 
         <div class="saveMeal">
-            <button class="submit"> Save Meal</button>
-            <a href="/meals">Cancel</a>
+            <button onclick="saveMeal()" class="saveButton"> SAVE MEAL</button>
+            <button onclick="cancelMeal" class="cancelButton" th:formaction="@{/meals}"><a href="/meals"> CANCEL </a>
+            </button>
+
         </div>
 
         </div>
