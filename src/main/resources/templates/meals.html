@@ -14,29 +14,37 @@
     <a href="/add-meal"><button>NEW MEAL</button></a>
     <!--Modal goes here-->
     <!-- <h2>COOKBOOK</h2> -->
-    <div class="nav-right">
-      <button class="shoppingListButton">SHOPPING<br />LIST</button>
-    </div>
+    <!-- <div class="nav-right"> -->
+      <a href="/shopping-list"><button class="shoppingListButton">SHOPPING<br />LIST</button></a>
+    <!-- </div> -->
   </nav>
   <main>
     <div class="container">
-      <div class="header">
-        <p>Meal Name</p>
-        <p>Qty.</p>
-      </div>
+		<div class="header">
+			<p>Meal Name</p>
+			<p>Qty.</p>
+		</div>
       <div th:each="meal: ${meals}">
-        <div class="mealList">
-          <a th:href="@{/edit-meal/{id}(id=${meal.id})}" th:text="${meal.name}"></a>
-          <div class="mealHandles">
-            <button type="button" name="minus">-</button>
-            <p th:text="${meal.servingCount}"></p>
-            <button type="button" name="plus">+</button>
-          </div>
-        </div>
-      </div>
+			<div class="mealList">
+				<a th:href="@{/edit-meal/{id}(id=${meal.id})}" th:text="${meal.name}"></a>
+				<div class="mealHandles">
+					<button type="button" name="minus" class="decreaseButton">
+						<input type="hidden" th:value="${meal.id}" class="decrementMealId"/>
+						-
+					</button>  
+					<p class="currentMealCount">
+						<input type="hidden" th:value="${meal.id}" class="countMealId"/>
+					</p>
+					<button type="button" name="plus" class="increaseButton">
+						<input type="hidden" th:value="${meal.id}" class="incrementMealId"/>
+						+
+					</button>
+				</div>
+			</div>
+		</div>
     </div>
   </main>
-
+  <script src="/meals.js"></script>
 </body>
 
 </html>

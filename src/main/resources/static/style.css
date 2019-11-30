@@ -75,6 +75,9 @@ button:hover{
   color: var(--independence);
 }
 
+.hidden{
+  display: none;
+}
 /* .shoppingListButton {
   position: relative;
   background-color: var(--independence);

@@ -74,8 +74,7 @@ public class MealIngredient {
 
 	@Override
 	public String toString() {
-		return "MealIngredient [ingredient=" + ingredient + ", quantity=" + quantity + ", id=" + id + ", meal=" + meal
-				+ "]";
+		return "MealIngredient [ingredient=" + ingredient + ", quantity=" + quantity + ", id=" + id + "]";
 	}
 
 	public void addMeal(Meal meal) {
