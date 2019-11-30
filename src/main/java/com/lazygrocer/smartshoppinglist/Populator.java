@@ -26,8 +26,7 @@ public class Populator implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Ingredient iButter = new Ingredient("butter");
-		iButter = ingredientRepo.save(iButter);
+		Ingredient iButter = ingredientRepo.save(new Ingredient("butter"));
 
 		Ingredient iMilk = ingredientRepo.save(new Ingredient("milk"));
 

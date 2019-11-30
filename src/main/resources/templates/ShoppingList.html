@@ -18,7 +18,11 @@
         </nav>
     <main>
         <h1>Shopping List</h1>
-
+            <div th:each="shoppingListItem : ${shoppingListItems}">
+<!--                "student: ${students}"-->
+                <h2 th:text="${shoppingListItem.ingredient.name}"></h2>
+                <p th:text="${shoppingListItem.quantity}"></p>
+            </div>
     </main>
 </body>
 
