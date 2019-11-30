@@ -1,10 +1,9 @@
-const newIngContainer = document.querySelector(".addNewIng");
-addNewIngredient(newIngContainer);
+const editIngredientList = document.querySelector(".edit-ingredients");
+addNewIngredient(editIngredientList);
 
 function addNewIngredient(element) {
     element.appendChild(createNewIngredientInput());
 }
-
 
 function createNewIngredientInput() {
     const ingredientInput = document.createElement("li");
@@ -35,6 +34,7 @@ function createNameBox() {
     nameBox.classList.add("ingredientName");
     return nameBox;
 }
+
 function createNumberBox() {
     const numberBox = document.createElement("input");
     numberBox.classList.add("ingredientQty");
@@ -42,19 +42,21 @@ function createNumberBox() {
     numberBox.setAttribute("type", "number");
     return numberBox;
 }
+
 function createAddItemButton() {
     const button = document.createElement('button');
     button.innerText = '+';
     button.classList.add('add-ingredient-button');
     return button;
-
 }
+
 function createRemoveItemButton() {
     const removeButton = document.createElement('button');
     removeButton.innerText = 'x';
     removeButton.classList.add('remove-ingredient-button');
     return removeButton;
 }
+
 function readIngredientInput() {
     const mealIngredients = []
 
@@ -66,17 +68,18 @@ function readIngredientInput() {
             },
             "quantity": 23
         }
-        mealIngredient.ingredient.name = mealIngInputs[i].querySelector(".ingredientName").value;
-        mealIngredient.quantity = mealIngInputs[i].querySelector(".ingredientQty").value;
-        mealIngredients.push(mealIngredient);
-
+        if (mealIngInputs[i].querySelector(".ingredientName").value) {
+            mealIngredient.ingredient.name = mealIngInputs[i].querySelector(".ingredientName").value;
+            mealIngredient.quantity = mealIngInputs[i].querySelector(".ingredientQty").value;
+            mealIngredients.push(mealIngredient);
+        }
     }
     return mealIngredients;
-
 }
 
 
-const mealToAdd = {
+const mealToEdit = {
+    "id": -1,
     "name": "AwesomeName",
     "servingCount": 1,
     "mealIngredients": [{
@@ -89,31 +92,26 @@ const mealToAdd = {
 
 document.querySelector(".submit").addEventListener("click", event => {
     event.preventDefault();
-    mealToAdd.name = addMealName.value;
-
-    mealToAdd.mealIngredients = readIngredientInput();
-
-    sendMealToAPI(mealToAdd);
+    mealToEdit.name = document.querySelector('.meal-name-input').value;
+    mealToEdit.id = document.querySelector('.meal-id-input').value;
+    mealToEdit.mealIngredients = readIngredientInput();
+    sendMealToAPI(mealToEdit);
 
 });
 
-function saveMeal() {
-    alert("Your meal has been saved!");
-};
+// function saveMeal() {
+//     alert("Your meal has been saved!");
+// };
 
 async function sendMealToAPI(obj) {
-    const response = await fetch('http://localhost:8080/api/meals/add-meal', {
-        method: 'POST',
+    const response = await fetch('http://localhost:8080/api/meals/edit-meal/' + obj.id, {
+        method: 'PUT',
         body: JSON.stringify(obj),
         headers: {
             'Content-Type': 'application/json'
         }
-
     });
     const myJson = await response.json();
+    console.log(JSON.stringify(obj))
     console.log('Success', JSON.stringify(myJson));
-
-
-
 }
-

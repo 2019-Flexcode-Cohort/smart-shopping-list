@@ -6,10 +6,7 @@ import com.lazygrocer.smartshoppinglist.models.MealIngredient;
 import com.lazygrocer.smartshoppinglist.repositories.IngredientRepository;
 import com.lazygrocer.smartshoppinglist.repositories.MealIngredientRepository;
 import com.lazygrocer.smartshoppinglist.repositories.MealRepository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Optional;
@@ -41,9 +38,25 @@ public class MealApiController {
         meal.updateMealIngredientReferences();
 
         return mealRepo.save(meal);
-        
 
     }
-    
+
+    @PutMapping("/edit-meal/{mealId}")
+    public Meal editMeal(@RequestBody Meal meal, @PathVariable Long mealId) throws InterruptedException {
+        Meal mealToChange = mealRepo.save(meal);
+        mealIngredientRepo.deleteAll(mealToChange.getMealIngredients());
+        for (MealIngredient mealIngredient : meal.getMealIngredients()) {
+            Optional<Ingredient> ingredientOptional = ingredientRepo.findByName(mealIngredient.getIngredient().getName());
+            if (!ingredientOptional.isPresent()) {
+                mealIngredient.updateIngredient(ingredientRepo.save(new Ingredient(mealIngredient.getIngredient().getName())));
+            } else {
+                mealIngredient.updateIngredient(ingredientOptional.get());
+            }
+            mealIngredientRepo.save(mealIngredient);
+        }
+        mealRepo.save(meal);
+        meal.updateMealIngredientReferences();
+        return mealRepo.save(meal);
+    }
 
 }
