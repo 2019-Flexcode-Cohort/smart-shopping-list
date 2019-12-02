@@ -17,29 +17,31 @@
 </STYLE>
 
 <body>
-
-    <form method="post">
+    <nav>
         <h1> Create New Meal </h1><br>
-        <div>
-            <label>Add Meal Name</label>
-            <input class='mealNameInput' type="text" name="mealName" placeholder="Meal Name">
-        </div>
+    </nav>
+    <main>
+        <form method="post">
+            <div class="container">
+                <h3>Add Meal Name</h3>
+                <input class='mealNameInput' type="text" name="mealName" placeholder="Meal Name">
 
-        <ul class='app'>
-            <p>Add Ingredient</p>
-        </ul>
+                <ul class='app'>
+                    <h3>Add Ingredient</h3>
+                </ul>
 
-
-
-        <div>
-            <button onclick="saveMeal()" class="submit" th:formaction="@{/add-meal}">SAVE MEAL</button>
-            <button onclick="cancelMeal" class="cancel" th:formaction="@{/meals}"><a href="/meals"> CANCEL </a>
-            </button>
-        </div>
-
-    </form>
+            </div>
 
 
+            <div>
+                <button onclick="saveMeal()" class="submit" th:formaction="@{/add-meal}">SAVE MEAL</button>
+                <button onclick="cancelMeal" class="cancel" th:formaction="@{/meals}"><a href="/meals"> CANCEL </a>
+                </button>
+            </div>
+
+        </form>
+
+    </main>
 
     <script src="/addMeal.js"> </script>
 </body>
