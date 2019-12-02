@@ -66,13 +66,13 @@ nav>a button, .nav-right>button {
 nav>a button:hover, .nav-right>button:hover {
   transition: 0.5s;
   background-color: var(--white-smoke);
-  color: var(--independence);
+  color:  #035212;;
 }
 
 button:hover{
 	 transition: 0.5s;
   background-color: var(--white-smoke);
-  color: var(--independence);
+  color:  #035212;;
 }
 
 .hidden{
@@ -145,7 +145,7 @@ button:hover{
 
 .mealList a {
   display: flex;
-  color: #333;
+  color:  #035212;
   font-weight: bolder;
   font-size: 1.25rem;
   align-items: center;
