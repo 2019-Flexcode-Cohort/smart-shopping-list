@@ -1,0 +1,43 @@
+body {
+    display: grid;
+    grid-template-areas:
+      "nav"
+      "container";
+    grid-template-rows: 80px 1fr;
+    margin: 0 auto;
+    max-width: 950px;
+    height: 100vh;
+  }
+  
+  h1 {
+      color: #E5FFCD;
+  }
+  nav {
+    justify-content: center;
+    background-image: radial-gradient(#49CE81,#27ae60);
+  }
+  .addItemButton {
+	color: #E5FFCD;
+	border-radius: 4px;
+  background-image: linear-gradient(to right, #27ae60, #005711);
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: 3px, var(--green);
+  
+}
+.home{
+    color: #E5FFCD;
+	border-radius: 4px;
+  background-image: linear-gradient(to right, #27ae60, #005711);
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: 3px, var(--green); 
+}
