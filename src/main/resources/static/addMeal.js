@@ -104,6 +104,7 @@ const mealToAdd = {
 
 document.querySelector(".submit").addEventListener("click", event => {
   event.preventDefault();
+
   mealToAdd.name = addMealName.value;
 
   mealToAdd.mealIngredients = readIngredientInput();
@@ -124,7 +125,6 @@ async function sendMealToAPI(obj) {
     headers: {
       'Content-Type': 'application/json'
     }
-
   });
   const myJson = await response.json();
   console.log('Success', JSON.stringify(myJson));

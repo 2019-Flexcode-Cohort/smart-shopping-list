@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+
 @Service
 public class MealPlan {
 
@@ -12,7 +13,7 @@ public class MealPlan {
 	public void addMeal(Meal meal) {
 		getMeals().add(meal);
 	}
-	
+
 	public int mealCount() {
 		return getMeals().size();
 	}
@@ -37,4 +38,6 @@ public class MealPlan {
 		}
 		return count;
 	}
+
+	
 }
