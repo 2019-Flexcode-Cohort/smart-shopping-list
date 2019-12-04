@@ -19,7 +19,8 @@ nav {
 .cancel{
 	
   background-color: rgb(211, 241, 223);
-  color: #035212;
+  background-image: linear-gradient(to right, #27ae60, #005711);
+  color: #E5FFCD;
   border: 5px, #ff0800;
   border-radius: 4px;
   font-weight: bold;
@@ -63,7 +64,7 @@ nav {
 
 
 a {
-  color: #50A561;
+  color: #E5FFCD;
   font-weight: bold;
   
 }
