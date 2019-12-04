@@ -90,7 +90,6 @@ function readIngredientInput() {
 
 }
 
-
 const mealToAdd = {
   "name": "AwesomeName",
   "servingCount": 1,
@@ -114,9 +113,9 @@ document.querySelector(".submit").addEventListener("click", event => {
 
 });
 
-function saveMeal() {
-  alert("Your meal has been saved!");
-};
+// function saveMeal() {
+//   alert("Your meal has been saved!");
+// };
 
 async function sendMealToAPI(obj) {
   const response = await fetch('http://localhost:8080/api/meals/add-meal', {
@@ -126,9 +125,8 @@ async function sendMealToAPI(obj) {
       'Content-Type': 'application/json'
     }
   });
+
   const myJson = await response.json();
   console.log('Success', JSON.stringify(myJson));
-
-
 
 }
