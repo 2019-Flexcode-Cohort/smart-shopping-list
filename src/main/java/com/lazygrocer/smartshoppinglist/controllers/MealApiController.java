@@ -1,5 +1,6 @@
 package com.lazygrocer.smartshoppinglist.controllers;
 
+import com.lazygrocer.smartshoppinglist.MealAlreadyFoundException;
 import com.lazygrocer.smartshoppinglist.models.Ingredient;
 import com.lazygrocer.smartshoppinglist.models.Meal;
 import com.lazygrocer.smartshoppinglist.models.MealIngredient;
@@ -34,6 +35,10 @@ public class MealApiController {
             mealIngredientRepo.save(mealIngredient);
 
         }
+        
+        if(mealRepo.findByName(meal.getName()) != null) {
+        	throw new MealAlreadyFoundException();
+        } 
         mealRepo.save(meal);
         meal.updateMealIngredientReferences();
 
