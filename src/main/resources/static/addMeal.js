@@ -139,10 +139,6 @@ document.querySelector(".submit").addEventListener("click", async function(event
 });
 
 
-function saveMeal() {
-//   alert("Your meal has been saved!");
-};
-
 // async function sendMealToAPI(obj) {
 //   const response = await fetch('http://localhost:8080/api/meals/add-meal', {
 //     method: 'POST',
