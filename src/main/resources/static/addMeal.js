@@ -1,5 +1,8 @@
 const addMealName = document.querySelector('.mealNameInput');
 
+var form = document.getElementById(‘MyForm’);
+var isValidForm = form.checkValidity();
+
 const appContainer = document.querySelector(".app");
 renderIngredientInput(appContainer);
 
@@ -137,6 +140,7 @@ document.querySelector(".submit").addEventListener("click", async function(event
     alert(result.message);
   }
 });
+
 
 
 // async function sendMealToAPI(obj) {
