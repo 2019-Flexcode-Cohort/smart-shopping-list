@@ -3,7 +3,6 @@ const addMealName = document.querySelector('.mealNameInput');
 const appContainer = document.querySelector(".app");
 renderIngredientInput(appContainer);
 
-
 function renderIngredientInput(element) {
   element.appendChild(createIngredientInput());
 }
@@ -120,7 +119,7 @@ const form = document.getElementById("addMealName");
 document.querySelector(".submit").addEventListener("click", async function(event) {
   event.preventDefault();
 
-  if (form.checkValidity()) {
+  if (form.reportValidity()) {
     mealToAdd.name = addMealName.value;
     mealToAdd.mealIngredients = readIngredientInput();
 
