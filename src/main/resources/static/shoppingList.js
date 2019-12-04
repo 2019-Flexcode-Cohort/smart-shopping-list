@@ -22,6 +22,9 @@ const list = document.querySelector('ul');
 list.addEventListener('click', function (ev) {
     if (ev.target.tagName === 'LI') {
         ev.target.classList.toggle('checked');
+    } else if (ev.target.tagName === 'H5') {
+        ev.target.parentElement.parentElement.classList.toggle('checked');
+        console.log('clicked');
     }
 }, false);
 

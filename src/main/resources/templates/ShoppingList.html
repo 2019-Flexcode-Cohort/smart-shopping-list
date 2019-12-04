@@ -19,11 +19,13 @@
   <main>
     <div class="container">
       <ul>
-
-        <li th:each="shoppingListItem : ${shoppingListItems}">
-
-          <h5 th:text="${shoppingListItem.ingredient.name}"></h5>
-          <p th:text="${shoppingListItem.quantity}"></p>
+        <li th:each="shoppingListItem : ${shoppingListItems}" class="shoppingListGridContainer">
+          <div>
+              <h5 th:text="${shoppingListItem.ingredient.name}"></h5>
+          </div>
+          <div>
+              <p th:text="${shoppingListItem.quantity}"></p>
+          </div>
         </li>
       </ul>
       <span onclick="newElement()" class="addBtn">Add</span>
