@@ -21,18 +21,19 @@
       <ul>
         <li th:each="shoppingListItem : ${shoppingListItems}" class="shoppingListGridContainer">
           <div>
-              <h5 th:text="${shoppingListItem.ingredient.name}"></h5>
+            <h5 th:text="${shoppingListItem.ingredient.name}"></h5>
           </div>
           <div>
-              <p th:text="${shoppingListItem.quantity}"></p>
+            <p th:text="${shoppingListItem.quantity}"></p>
           </div>
         </li>
       </ul>
+    </div>
+    <div class="shoppinglistbuttons">
       <span onclick="newElement()" class="addBtn">Add</span>
 
       <!-- <button class="addItemButton">ADD ITEM</button>-->
       <a href="/meals"><button class="home">BACK TO MEALS</button></a>
-
     </div>
   </main>
   <script src="/shoppingList.js"> </script>

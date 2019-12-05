@@ -58,37 +58,37 @@ body {
     cursor: pointer;
     position: relative;
     padding: 12px 8px 12px 40px;
-    background:rgb(211, 241, 223);
+
     font-size: 18px;
     transition: 0.2s;
   
-    
+  }
+  .shoppinglistbuttons{
+padding: 10px 0px 0px 15px
   }
   
-  /* Set all odd list items to a different color (zebra-stripes) */
+  /* Set all odd list items to a different color (zebra-stripes) 
   ul li:nth-child(odd) {
     background: rgb(232, 246, 238);
-  }
+  }*/
   
-  /* Darker background-color on hover */
-  ul li:hover {
-    background: rgb(133, 255, 182);
-  }
+ 
   
   /* When clicked on, add a background color and strike out text */
   ul li.checked {
     background: rgb(211, 241, 223);
     color: rgb(15, 12, 12);
     text-decoration: line-through;
+    
   }
   
   /* Add a "checked" mark when clicked on */
   ul li.checked::before {
     content: '';
     position: absolute;
-    border-color: #fff;
+    border-color: #27ae60;
     border-style: solid;
-    border-width: 0 2px 2px 0;
+    border-width: 0 4px 4px 0;
     top: 10px;
     left: 16px;
     transform: rotate(45deg);
@@ -104,10 +104,7 @@ body {
     padding: 12px 16px 12px 16px;
   }
   
-  .close:hover {
-    background-color: rgb(211, 241, 223);
-    color: white;
-  }
+  
   
   /* Style the header */
   .header {
@@ -149,14 +146,11 @@ body {
   border: 3px, var(--green);
   }
   
-  .addBtn:hover {
-    transition: 0.5s;
-    background-color: var(--white-smoke);
-    color:  #035212;;
-  }
+ 
 
   .shoppingListGridContainer {
     display: grid;
     grid-template-columns: 4fr 1fr;
     text-align: left;
+    border-bottom: 1px solid #27ae60
   }
