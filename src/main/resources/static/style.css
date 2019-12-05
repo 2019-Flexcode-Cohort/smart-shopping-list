@@ -18,7 +18,7 @@ body {
   display: grid;
   grid-template-areas:
     "nav"
-    "mealList";
+    "container";
   grid-template-rows: 80px 1fr;
   margin: 0 auto;
   max-width: 950px;
@@ -51,10 +51,6 @@ button {
   border-radius: 4px;
 }
 
-button:hover {
-  cursor: pointer;
-}
-
 nav>a button, .nav-right>button {
   margin: .25rem;
   height: 3rem;
@@ -63,50 +59,9 @@ nav>a button, .nav-right>button {
   color: var(--white-smoke);
 }
 
-nav>a button:hover, .nav-right>button:hover {
-  transition: 0.5s;
-  background-color: var(--white-smoke);
-  color:  #035212;;
-}
-
-button:hover{
-	 transition: 0.5s;
-  background-color: var(--white-smoke);
-  color:  #035212;;
-}
-
 .hidden{
   display: none;
 }
-/* .shoppingListButton {
-  position: relative;
-  background-color: var(--independence);
-  transition-duration: 0.4s;
-  overflow: hidden;
-}
-
-.shoppingListButton:after {
-  content: "";
-  background: var(--independence);
-  display: block;
-  position: absolute;
-  padding-top: 10%;
-  padding-left: 10%;
-  margin-left: -20px !important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 1s
-}
-.shoppingListButton:active:after {
-  padding: 4;
-  margin: 0;
-  opacity: 1;
-  transition: 0s;
-} */
-
-/* .totalMealCount {
-  margin-right: 1.5rem;
-} */
 
 .container {
   margin: 0 1rem;
@@ -123,9 +78,6 @@ button:hover{
   padding-top: .5rem;
 }
 
-/* .header p:first-of-type {
-  margin-left: 2rem;
-} */
 .header p:last-of-type {
   display: flex;
   justify-content: flex-end;
@@ -161,11 +113,11 @@ button:hover{
 
 .mealHandles {
   display: flex;
-  justify-content: flex-end;
-  justify-content: space-around;
 }
 
 .mealHandles button {
+  justify-content: flex-end;
+  justify-content: space-between;
   font-size: 1rem;
   font-weight: bold;
   background-color: var(--green);
@@ -173,26 +125,8 @@ button:hover{
   width: 2rem;
 }
 
+
 .mealHandles button:hover {
   transition: 0.5s;
   transform: scale(1.25);
 }
-
-/* .mealList>div {
-  border-bottom: 1px solid black;
-} */
-/* #mealCount, .mealButton {
-    text-align: center;
-    font-size: 25px;
-}
-
-.mealName {
-    padding: 5px;
-
-}
-
-.addIngredients {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: auto 3rem 3rem;
-} */
