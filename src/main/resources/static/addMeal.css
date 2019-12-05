@@ -18,17 +18,19 @@ nav {
   background-image: radial-gradient(#49CE81, #27ae60);
 }
 
-.cancel {
-  background-color: rgb(211, 241, 223);
-  background-image: linear-gradient(to right, #27ae60, #005711);
-  color: #E5FFCD;
+.cancel{
+  background-color:rgb(211, 241, 223);
+  color: #035212;;
+
   border: 5px, #ff0800;
   border-radius: 4px;
   font-weight: bold;
   padding: 10px 15px;
   text-align: center;
   display: inline-block;
-  font-size: 16px;
+
+  font-size: 16px;  
+
 }
 
 .container {
@@ -39,11 +41,6 @@ nav {
   margin-bottom: 1rem;
 }
 
-.app button {
-  font-size: 0.75rem;
-  height: auto;
-  width: auto;
-}
 
 .app {
   flex-direction: column;
@@ -65,7 +62,7 @@ nav {
 }
 
 a {
-  color: #E5FFCD;
+  color: var(--independence);
   font-weight: bold;
 }
 
