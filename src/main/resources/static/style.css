@@ -108,7 +108,7 @@ nav>a button, .nav-right>button {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0 1rem;
+  padding: 5px
 }
 
 .mealHandles {
@@ -129,4 +129,8 @@ nav>a button, .nav-right>button {
 .mealHandles button:hover {
   transition: 0.5s;
   transform: scale(1.25);
+}
+.currentMealCount{
+  width: 2rem;
+ text-align: center;
 }
