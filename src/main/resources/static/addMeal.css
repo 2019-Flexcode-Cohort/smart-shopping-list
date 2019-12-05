@@ -10,23 +10,29 @@ body {
 }
 
 h1 {
-	color: #E5FFCD;
+  color: #E5FFCD;
 }
+
 nav {
   justify-content: center;
-  background-image: radial-gradient(#49CE81,#27ae60);
+  background-image: radial-gradient(#49CE81, #27ae60);
 }
+
 .cancel{
   background-color:rgb(211, 241, 223);
   color: #035212;;
+
   border: 5px, #ff0800;
   border-radius: 4px;
   font-weight: bold;
   padding: 10px 15px;
   text-align: center;
   display: inline-block;
+
   font-size: 16px;  
+
 }
+
 .container {
   margin-top: 2rem;
 }
@@ -35,9 +41,11 @@ nav {
   margin-bottom: 1rem;
 }
 
+
 .app {
   flex-direction: column;
 }
+
 .container input {
   margin: 2px;
   padding: 2px;
@@ -45,7 +53,7 @@ nav {
   border-style: linear-gradient;
 }
 
-.app > div {
+.app>div {
   display: flex;
 }
 
@@ -60,7 +68,7 @@ a {
 
 .submit {
   color: #E5FFCD;
-	border-radius: 4px;
+  border-radius: 4px;
   background-image: linear-gradient(to right, #27ae60, #005711);
   font-weight: bold;
   padding: 10px 15px;
@@ -72,5 +80,5 @@ a {
 }
 
 .app {
-padding: 30px;
+  padding: 30px;
 }

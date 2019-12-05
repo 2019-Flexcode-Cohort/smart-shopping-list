@@ -83,7 +83,7 @@ button {
   color: var(--independence);
 }
 
-.saveButton {
+.saveButton  {
 	color: #E5FFCD;
 	border-radius: 4px;
   background-image: linear-gradient(to right, #27ae60, #005711);

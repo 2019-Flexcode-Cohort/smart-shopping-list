@@ -18,7 +18,7 @@ body {
   display: grid;
   grid-template-areas:
     "nav"
-    "mealList";
+    "container";
   grid-template-rows: 80px 1fr;
   margin: 0 auto;
   max-width: 950px;
@@ -51,28 +51,12 @@ button {
   border-radius: 4px;
 }
 
-button:hover {
-  cursor: pointer;
-}
-
 nav>a button, .nav-right>button {
   margin: .25rem;
   height: 3rem;
   width: 5rem;
   background-color: var(--independence);
   color: var(--white-smoke);
-}
-
-nav>a button:hover, .nav-right>button:hover {
-  transition: 0.5s;
-  background-color: var(--white-smoke);
-  color:  #035212;;
-}
-
-button:hover{
-	 transition: 0.5s;
-  background-color: var(--white-smoke);
-  color:  #035212;;
 }
 
 .hidden{
@@ -140,6 +124,7 @@ button:hover{
   height: 2rem;
   width: 2rem;
 }
+
 
 .mealHandles button:hover {
   transition: 0.5s;
