@@ -10,7 +10,8 @@ function renderIngredientInput(element) {
 
 function createIngredientInput() {
   const ingredientInput = document.createElement("li");
-  ingredientInput.classList.add("ingredientInput");
+  ingredientInput.classList.add("ingredientInput");  
+  ingredientInput.classList.add('mealHandles');
   ingredientInput.appendChild(createNameBox());
   ingredientInput.appendChild(createNumberBox());
   const button = createAddItemButton();
