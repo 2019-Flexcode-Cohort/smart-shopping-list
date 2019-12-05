@@ -3,7 +3,6 @@ const addMealName = document.querySelector('.mealNameInput');
 const appContainer = document.querySelector(".app");
 renderIngredientInput(appContainer);
 
-
 function renderIngredientInput(element) {
   element.appendChild(createIngredientInput());
 }
@@ -29,6 +28,7 @@ function createIngredientInput() {
   })
   return ingredientInput;
 }
+
 function wireDeleteButton() {
   let deleteButtons = document.querySelectorAll(".remove-ingredient-button");
   for (let i = 0; i < deleteButtons.length; i++) {
@@ -39,6 +39,7 @@ function wireDeleteButton() {
   }
 }
 wireDeleteButton();
+
 function createNameBox() {
   const nameBox = document.createElement("input");
   nameBox.setAttribute("type", "text");
@@ -113,30 +114,35 @@ const mealToAdd = {
 //
 // });
 
+const form = document.getElementById("addMealName");
+
 document.querySelector(".submit").addEventListener("click", async function(event) {
   event.preventDefault();
 
-  mealToAdd.name = addMealName.value;
-  mealToAdd.mealIngredients = readIngredientInput();
+  if (form.reportValidity()) {
+    mealToAdd.name = addMealName.value;
+    mealToAdd.mealIngredients = readIngredientInput();
 
-  let response = await fetch('http://localhost:8080/api/meals/add-meal', {
-    method: 'POST',
-    body: JSON.stringify(mealToAdd),
-    headers: {
-      'Content-Type': 'application/json'
+    let response = await fetch('http://localhost:8080/api/meals/add-meal', {
+      method: 'POST',
+      body: JSON.stringify(mealToAdd),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    console.log(response);
+
+    if (response.ok) {
+      alert("Your meal has been saved!");
+      location.assign("http://localhost:8080");
+    } else {
+      let result = await response.json();
+      console.log(result);
+      alert(result.message);
     }
-  });
-  console.log(response);
-
-  if (response.ok) {
-    alert("Your meal has been saved!");
-    location.assign("http://localhost:8080");
-  } else {
-    let result = await response.json();
-    console.log(result);
-    alert(result.message);
   }
 });
+
 
 
 // async function sendMealToAPI(obj) {
