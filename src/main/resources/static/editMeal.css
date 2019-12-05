@@ -20,6 +20,7 @@ nav {
 
 .cancelButton{
 	
+
   background-color:rgb(211, 241, 223);
   color: #035212;
   border: 5px, #ff0800;
@@ -27,8 +28,10 @@ nav {
   font-weight: bold;
   padding: 10px 15px;
   text-align: center;
+  text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  border: 3px, var(--green);
   
 }
 
@@ -82,7 +85,7 @@ button {
 }
 
 .saveMeal a {
-  color: var(--independence);
+	color: #E5FFCD;
 }
 
 .saveButton  {
