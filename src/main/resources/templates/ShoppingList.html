@@ -18,7 +18,7 @@
   </nav>
   <main>
     <div class="container">
-      <ul>
+      <ul id='shoppinglist'>
         <li th:each="shoppingListItem : ${shoppingListItems}" class="shoppingListGridContainer">
           <div>
             <h5 th:text="${shoppingListItem.ingredient.name}"></h5>
@@ -30,6 +30,8 @@
       </ul>
     </div>
     <div class="shoppinglistbuttons">
+
+      <input type=" text" id="miscinput" placeholder="add item">
       <span onclick="newElement()" class="addBtn">Add</span>
 
       <!-- <button class="addItemButton">ADD ITEM</button>-->
