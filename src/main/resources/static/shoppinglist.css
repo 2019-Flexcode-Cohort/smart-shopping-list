@@ -137,6 +137,7 @@ padding: 10px 0px 0px 15px
   /* Style the "Add" button */
   .addBtn {
     color: #E5FFCD;
+    margin: 10px 5px 10px 5px;
 	border-radius: 4px;
   background-image: linear-gradient(to right, #27ae60, #005711);
   font-weight: bold;
@@ -158,3 +159,10 @@ padding: 10px 0px 0px 15px
     text-align: left;
     border-bottom: 1px solid #27ae60
   }
+  #miscinput{
+    width: 60%;
+  }
+#miscInputQty{
+width: 15%;
+
+}
