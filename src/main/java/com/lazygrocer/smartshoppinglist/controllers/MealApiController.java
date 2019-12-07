@@ -45,9 +45,11 @@ public class MealApiController {
         return mealRepo.save(meal);
 
     }
+    
+//    throws InterruptedException
 
     @PutMapping("/edit-meal/{mealId}")
-    public Meal editMeal(@RequestBody Meal meal, @PathVariable Long mealId) throws InterruptedException {
+    public Meal editMeal(@RequestBody Meal meal, @PathVariable Long mealId)  {
         Meal mealToChange = mealRepo.save(meal);
         mealIngredientRepo.deleteAll(mealToChange.getMealIngredients());
         for (MealIngredient mealIngredient : meal.getMealIngredients()) {
@@ -59,6 +61,9 @@ public class MealApiController {
             }
             mealIngredientRepo.save(mealIngredient);
         }
+        if(mealRepo.findByName(meal.getName()) != null) {
+        	throw new MealAlreadyFoundException();
+        } 
         mealRepo.save(meal);
         meal.updateMealIngredientReferences();
         return mealRepo.save(meal);

@@ -6,7 +6,7 @@ function addNewIngredient(element) {
 }
 
 function createNewIngredientInput() {
-  const ingredientInput = document.createElement("li");
+  const ingredientInput = document.createElement("div");
   ingredientInput.classList.add("ingredientInput");
   ingredientInput.appendChild(createNameBox());
   ingredientInput.appendChild(createNumberBox());
@@ -123,6 +123,11 @@ document.querySelector(".submit").addEventListener("click", async function(event
     if (response.ok) {
       alert("Your meal has been saved!");
       location.assign("http://localhost:8080");
+    }
+    else {
+      let result = await response.json();
+      console.log(result);
+      alert(result.message);
     }
   }
 });

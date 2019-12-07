@@ -8,10 +8,14 @@
 
 html {
   --independence: #435362;
+  --smokey-black: #0F0C0C;
+  --gainsboro: #DDDDDD;
   --azureish-white: #E1EFF6;
-  --granny-smith-apple: #C0DFA1;
   --green: #27ae60;
+  --paris-green: #49CE81;
   --white-smoke: #F4F4F4;
+  --nyanza: #E5FFCD;
+  --aero-blue: #d3f1df;
 }
 
 body {
@@ -31,7 +35,7 @@ main {
 }
 
 nav {
-  background-color: var(--green);
+  background-image: radial-gradient(var(--paris-green), var(--green));
   grid-area: nav;
   top: 0;
   display: flex;
@@ -40,6 +44,10 @@ nav {
   color: var(--white-smoke);
   font-size: 24px;
   font-style: bold;
+}
+
+nav h1 {
+  color: var(--nyanza);
 }
 
 .nav-right {
@@ -59,10 +67,14 @@ nav>a button, .nav-right>button {
   height: 3rem;
   width: 5rem;
   background-color: var(--independence);
-  color: var(--white-smoke);
+  color: var(--nyanza);
 }
 
-.hidden{
+.fa-shopping-basket {
+  font-size: 1.25rem;
+}
+
+.hidden {
   display: none;
 }
 
@@ -79,6 +91,7 @@ nav>a button, .nav-right>button {
   border-bottom: 1px solid var(--independence);
   padding-bottom: .5rem;
   padding-top: .5rem;
+  color: var(--independence);
 }
 
 .header p:last-of-type {
@@ -91,7 +104,6 @@ nav>a button, .nav-right>button {
   display: grid;
   grid-template-rows: 3rem;
   line-height: 2.3rem;
-  list-style-type: none;
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
@@ -100,7 +112,7 @@ nav>a button, .nav-right>button {
 
 .mealList a {
   display: flex;
-  color:  #035212;
+  color: var(--independence);
   font-weight: bolder;
   font-size: 1.25rem;
   align-items: center;
@@ -111,7 +123,7 @@ nav>a button, .nav-right>button {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 5px
+  margin-right: .75rem;
 }
 
 .mealHandles {
@@ -119,21 +131,17 @@ nav>a button, .nav-right>button {
 }
 
 
+.mealHandles button:first-of-type {
+  margin-right: .75rem;
+}
+
+
 .mealHandles button {
   justify-content: flex-end;
-  justify-content: space-between;
-  font-size: 1rem;
+  align-self: center;
+  font-size: 1.25rem;
   font-weight: bold;
+  background-color: inherit;
   height: 2rem;
   width: 2rem;
-}
-
-
-.mealHandles button:hover {
-  transition: 0.5s;
-  transform: scale(1.25);
-}
-.currentMealCount{
-  width: 2rem;
- text-align: center;
 }
