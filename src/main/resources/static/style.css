@@ -25,6 +25,7 @@ body {
   height: 100vh;
 }
 
+
 main {
   background-color: var(--white-smoke);
 }
@@ -36,7 +37,9 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--independence);
+  color: var(--white-smoke);
+  font-size: 24px;
+  font-style: bold;
 }
 
 .nav-right {
@@ -115,12 +118,12 @@ nav>a button, .nav-right>button {
   display: flex;
 }
 
+
 .mealHandles button {
   justify-content: flex-end;
   justify-content: space-between;
   font-size: 1rem;
   font-weight: bold;
-  background-color: var(--green);
   height: 2rem;
   width: 2rem;
 }
