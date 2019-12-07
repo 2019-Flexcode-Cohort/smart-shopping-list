@@ -1,6 +1,6 @@
 const addMealName = document.querySelector('.mealNameInput');
 
-const appContainer = document.querySelector(".app");
+const appContainer = document.querySelector(".addIngredient");
 renderIngredientInput(appContainer);
 
 function renderIngredientInput(element) {
@@ -8,7 +8,7 @@ function renderIngredientInput(element) {
 }
 
 function createIngredientInput() {
-  const ingredientInput = document.createElement("li");
+  const ingredientInput = document.createElement("div");
   ingredientInput.classList.add("ingredientInput");
   ingredientInput.classList.add('mealHandles');
   ingredientInput.appendChild(createNameBox());

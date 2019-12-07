@@ -18,18 +18,9 @@ nav {
   background-image: radial-gradient(var(--paris-green), var(--green));
 }
 
-.cancel{
-  background-color: var(--aero-blue);
-  border-radius: 4px;
-  font-weight: bold;
-  padding: 10px 15px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-}
-
 .container {
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .container h3 {
@@ -37,15 +28,27 @@ nav {
   color: var(--independence);
 }
 
-
-.app {
+.addIngredient {
   flex-direction: column;
-  padding-bottom: 2rem;
+}
+
+.ingredientQty {
+  width: 15%;
+  padding-left: 0;
+  text-align: center;
+}
+
+.container .mealNameInput {
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+
+.container input:first-of-type {
+  padding-left: 0.25rem;
 }
 
 .container input {
   margin-right: 2px;
-  padding: 2px;
   border: solid 2px var(--gainsboro);
 }
 
@@ -71,4 +74,14 @@ a {
   display: inline-block;
   font-size: 16px;
   border: 3px, var(--green);
+}
+
+.cancel {
+  background-color: var(--aero-blue);
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
 }
