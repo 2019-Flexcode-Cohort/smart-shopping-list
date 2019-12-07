@@ -17,8 +17,7 @@ nav {
   background-image: radial-gradient(#49CE81,#27ae60);
 }
 
-.cancelButton{
-	
+/* .cancelButton{
   background-color:rgb(211, 241, 223);
   color: #035212;;
   border: 5px, #ff0800;
@@ -28,8 +27,7 @@ nav {
   text-align: center;
   display: inline-block;
   font-size: 16px;
-  
-}
+} */
 
 button {
   height: auto;
@@ -70,10 +68,10 @@ button {
   padding: 2px;
   border-width: 3px;
   border-style: linear-gradient;
-  
+
 }
 
-.saveMeal {
+/* .saveMeal {
   margin-top: .75rem;
   display: flex;
   align-items: center;
@@ -93,5 +91,5 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  border: 3px, var(--green); 
-}
+  border: 3px, var(--green);
+} */
