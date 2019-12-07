@@ -20,22 +20,8 @@ nav {
 
 .nav-right h1 {
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 36px;
 }
-
-/* .addItemButton {
-  color: var(--nyanza);
-  background-color: var(--green);
-  border-radius: 4px;
-
-  font-weight: bold;
-  padding: 10px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border: 3px, var(--green);
-} */
 
 .home {
   color: var(--nyanza);
@@ -128,6 +114,7 @@ input {
   display: inline-block;
   font-size: 16px;
   border: 3px, var(--green);
+  margin: 5px 5px;
 }
 
 li {
@@ -135,5 +122,11 @@ li {
   grid-template-columns: 4fr 1fr;
   text-align: left;
   border-bottom: 1px solid var(--green);
+ 
 }
-
+#miscinput{
+  width: 60%;
+}
+#miscInputQty{
+  width:15%;
+}
