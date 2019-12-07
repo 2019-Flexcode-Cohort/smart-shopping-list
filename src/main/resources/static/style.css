@@ -115,12 +115,12 @@ nav>a button, .nav-right>button {
   display: flex;
 }
 
+
 .mealHandles button {
   justify-content: flex-end;
   justify-content: space-between;
   font-size: 1rem;
   font-weight: bold;
-  background-color: var(--green);
   height: 2rem;
   width: 2rem;
 }
