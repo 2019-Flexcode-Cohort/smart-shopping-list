@@ -47,7 +47,7 @@ public class Populator implements CommandLineRunner {
 		
 		Ingredient iGarlicClove  = ingredientRepo.save(new Ingredient("garlic clove"));
 		
-		Ingredient iHotPepperSause = ingredientRepo.save(new Ingredient("hot pepper sause"));
+		Ingredient iHotPepperSause = ingredientRepo.save(new Ingredient("hot pepper sauce"));
 		
 		Ingredient iVirginOil = ingredientRepo.save(new Ingredient("virgin oil"));
 		
@@ -58,7 +58,6 @@ public class Populator implements CommandLineRunner {
 		Ingredient iGreenBeans = ingredientRepo.save(new Ingredient("1lb green beans"));
 		Ingredient iYellowOnion = ingredientRepo.save(new Ingredient("yellow onion"));
 		Ingredient iMushrooms = ingredientRepo.save(new Ingredient("mushrooms"));
-//		Ingredient iGarlicClove = ingredientRepo.save(new Ingredient("garic clove"));
 		Ingredient iAllPurposeFloor = ingredientRepo.save(new Ingredient("all purpose floor"));
 		Ingredient iFrenchOnion = ingredientRepo.save(new Ingredient("french onion"));
 		

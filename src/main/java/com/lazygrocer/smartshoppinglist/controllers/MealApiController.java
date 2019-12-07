@@ -61,9 +61,9 @@ public class MealApiController {
             }
             mealIngredientRepo.save(mealIngredient);
         }
-        if(mealRepo.findByName(meal.getName()) != null) {
-        	throw new MealAlreadyFoundException();
-        } 
+       // if(mealRepo.findByName(meal.getName()) != null) {
+       // 	throw new MealAlreadyFoundException();
+       // } 
         mealRepo.save(meal);
         meal.updateMealIngredientReferences();
         return mealRepo.save(meal);

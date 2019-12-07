@@ -103,7 +103,7 @@ const mealToEdit = {
 
 const form = document.getElementById('editMealName');
 
-document.querySelector(".submit").addEventListener("click", async function(event) {
+document.querySelector(".submit").addEventListener("click", async function (event) {
   event.preventDefault();
 
   if (form.reportValidity()) {
@@ -124,27 +124,12 @@ document.querySelector(".submit").addEventListener("click", async function(event
       alert("Your meal has been saved!");
       location.assign("http://localhost:8080");
     }
-    else {
+    /*else {
       let result = await response.json();
       console.log(result);
       alert(result.message);
-    }
+    }*/
   }
 });
 
-// function saveMeal() {
-//     alert("Your meal has been saved!");
-// };
 
-// async function sendMealToAPI(obj) {
-//     const response = await fetch('http://localhost:8080/api/meals/edit-meal/' + obj.id, {
-//         method: 'PUT',
-//         body: JSON.stringify(obj),
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     });
-//     const myJson = await response.json();
-//     console.log(JSON.stringify(obj))
-//     console.log('Success', JSON.stringify(myJson));
-// }
