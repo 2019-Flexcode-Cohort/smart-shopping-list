@@ -31,15 +31,15 @@ list.addEventListener('click', function (ev) {
 // Create a new list item when clicking on the "Add" button
 function newElement() {
     const li = document.createElement("li");
-    const inputValue = document.getElementById("myInput").value;
+    const inputValue = document.getElementById("miscinput").value;
     const t = document.createTextNode(inputValue);
     li.appendChild(t);
     if (inputValue === '') {
         alert("You must write something!");
     } else {
-        document.getElementById("myUL").appendChild(li);
+        document.getElementById("shoppinglist").appendChild(li);
     }
-    document.getElementById("myInput").value = "";
+    document.getElementById("miscinput").value = "";
 
     const span = document.createElement("SPAN");
     const txt = document.createTextNode("\u00D7");
