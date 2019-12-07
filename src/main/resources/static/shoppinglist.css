@@ -1,8 +1,4 @@
-* {
-  font-family: sans-serif;
-  font-weight: normal;
-  font-size: 20px;
-}
+
 
 body {
     display: grid;
@@ -15,9 +11,7 @@ body {
     height: 100vh;
   }
   
-  h1 {
-      color: #E5FFCD;
-  }
+  
   nav {
     justify-content: center;
     background-image: radial-gradient(#49CE81,#27ae60);

@@ -25,6 +25,7 @@ body {
   height: 100vh;
 }
 
+
 main {
   background-color: var(--white-smoke);
 }
@@ -36,7 +37,9 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--independence);
+  color: var(--white-smoke);
+  font-size: 24px;
+  font-style: bold;
 }
 
 .nav-right {
