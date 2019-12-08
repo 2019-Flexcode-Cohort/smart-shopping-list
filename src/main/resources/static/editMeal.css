@@ -9,11 +9,9 @@ body {
   height: 100vh;
 }
 
-
 h1 {
   color: var(--nyanza);
 }
-
 
 nav {
   justify-content: center;
