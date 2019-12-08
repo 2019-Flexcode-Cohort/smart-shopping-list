@@ -106,7 +106,6 @@ input {
   color: var(--nyanza);
   background-color: var(--green);
   border-radius: 4px;
-
   font-weight: bold;
   padding: 10px 15px;
   text-align: center;
@@ -122,11 +121,12 @@ li {
   grid-template-columns: 4fr 1fr;
   text-align: left;
   border-bottom: 1px solid var(--green);
- 
 }
-#miscinput{
+
+#miscinput {
   width: 60%;
 }
-#miscInputQty{
-  width:15%;
+
+#miscInputQty {
+  width: 15%;
 }

@@ -14,33 +14,32 @@
   <nav class="nav">
     <a href="/add-meal"><button>NEW MEAL</button></a>
     <h1>Lazy Grocer</h1>
-      <a href="/shopping-list"><button class="shoppingListButton"><i class="fas fa-shopping-basket"></i></button></a>
-    <!-- </div> -->
+    <a href="/shopping-list"><button class="shoppingListButton"><i class="fas fa-shopping-basket"></i></button></a>
   </nav>
   <main>
     <div class="container">
-		<div class="header">
-			<p>Meal Name</p>
-			<p>Qty.</p>
-		</div>
+      <div class="header">
+        <p>Meal Name</p>
+        <p>Qty.</p>
+      </div>
       <div th:each="meal: ${meals}">
-			<div class="mealList">
-				<a th:href="@{/edit-meal/{id}(id=${meal.id})}" th:text="${meal.name}"></a>
-				<div class="mealHandles">
-					<button type="button" name="minus" class="decreaseButton">
-						<input type="hidden" th:value="${meal.id}" class="decrementMealId"/>
-						-
-					</button>
-					<p class="currentMealCount">
-						<input type="hidden" th:value="${meal.id}" class="countMealId"/>
-					</p>
-					<button type="button" name="plus" class="increaseButton">
-						<input type="hidden" th:value="${meal.id}" class="incrementMealId"/>
-						+
-					</button>
-				</div>
-			</div>
-		</div>
+        <div class="mealList">
+          <a th:href="@{/edit-meal/{id}(id=${meal.id})}" th:text="${meal.name}"></a>
+          <div class="mealHandles">
+            <button type="button" name="minus" class="decreaseButton">
+              <input type="hidden" th:value="${meal.id}" class="decrementMealId" />
+              -
+            </button>
+            <p class="currentMealCount">
+              <input type="hidden" th:value="${meal.id}" class="countMealId" />
+            </p>
+            <button type="button" name="plus" class="increaseButton">
+              <input type="hidden" th:value="${meal.id}" class="incrementMealId" />
+              +
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
   <script src="/meals.js"></script>

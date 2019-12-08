@@ -103,7 +103,7 @@ const mealToEdit = {
 
 const form = document.getElementById('editMealName');
 
-document.querySelector(".submit").addEventListener("click", async function (event) {
+document.querySelector(".submit").addEventListener("click", async function(event) {
   event.preventDefault();
 
   if (form.reportValidity()) {
@@ -121,15 +121,7 @@ document.querySelector(".submit").addEventListener("click", async function (even
     console.log(response);
 
     if (response.ok) {
-      alert("Your meal has been saved!");
-      location.assign("http://localhost:8080");
+      window.location.replace("http://localhost:8080");
     }
-    /*else {
-      let result = await response.json();
-      console.log(result);
-      alert(result.message);
-    }*/
   }
 });
-
-

@@ -103,18 +103,6 @@ const mealToAdd = {
   }]
 }
 
-// document.querySelector(".submit").addEventListener("click", event => {
-//   event.preventDefault();
-//
-//   mealToAdd.name = addMealName.value;
-//
-//   mealToAdd.mealIngredients = readIngredientInput();
-//
-//   sendMealToAPI(mealToAdd);
-//   location.assign("http://localhost:8080");
-//
-// });
-
 const form = document.getElementById("addMealName");
 
 document.querySelector(".submit").addEventListener("click", async function(event) {
@@ -134,8 +122,7 @@ document.querySelector(".submit").addEventListener("click", async function(event
     console.log(response);
 
     if (response.ok) {
-      alert("Your meal has been saved!");
-      location.assign("http://localhost:8080");
+      window.location.replace("http://localhost:8080");
     } else {
       let result = await response.json();
       console.log(result);
@@ -143,19 +130,3 @@ document.querySelector(".submit").addEventListener("click", async function(event
     }
   }
 });
-
-
-
-// async function sendMealToAPI(obj) {
-//   const response = await fetch('http://localhost:8080/api/meals/add-meal', {
-//     method: 'POST',
-//     body: JSON.stringify(obj),
-//     headers: {
-//       'Content-Type': 'application/json'
-//     }
-//   });
-//
-//   const myJson = await response.json();
-//   console.log('Success', JSON.stringify(myJson));
-//
-// }
